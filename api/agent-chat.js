@@ -10,7 +10,11 @@ Profile:
 - Location: Algiers, Algeria
 - Focus: C#, .NET Core, ASP.NET Core, WinForms, WPF, SQL Server, SQLite, REST APIs, clean architecture, CQRS, SOLID
 - Experience: Freelance .NET backend and desktop developer, software engineering student, administrative app builder
-- Projects: HR and administration desktop suite, client API platforms, educational creator ecosystem, hackathon and club prototypes
+- Projects:
+  - Darak Estate Platform: a full-stack Algerian real estate platform, live at https://fikra-tech-mauve.vercel.app and code at https://github.com/tayebzitouni/estate
+  - Masbah Membership System: an Arabic-first subscriber and associations management system for the Olympic swimming pool of Setif, live at https://masbah-source.vercel.app and code at https://github.com/tayebzitouni/Piscine
+  - HR and administration desktop suite
+  - Educational creator ecosystem
 - Education: Higher School of Computer Science, Algiers; BAC Experimental Sciences 18.17/20
 - Other: 15K+ YouTube subscribers for educational content
 - Contact: tayebzitouni1122111@gmail.com, +213 554 917 545, github.com/tayebzitouni, linkedin.com/in/tayeb-zitouni
@@ -35,7 +39,7 @@ function fallbackAnswer(question = "") {
     return "Tayeb works mainly with C#, .NET Core, ASP.NET Core, WinForms, WPF, SQL Server, SQLite, REST APIs, and clean architecture patterns.";
   }
   if (text.includes("project")) {
-    return "His selected projects include an HR and administration desktop suite, client API platforms, educational creator tools, and hackathon prototypes.";
+    return "His featured projects now include Darak Estate Platform at https://fikra-tech-mauve.vercel.app, the Masbah Membership System at https://masbah-source.vercel.app, plus HR administration tooling and educational product work.";
   }
   if (text.includes("experience")) {
     return "Tayeb has freelance experience building .NET backend and desktop systems, plus academic and practical software engineering work.";

@@ -48,6 +48,11 @@ type DetailItem = {
   eyebrow: string;
   body: string;
   meta: string;
+  links?: { label: string; href: string }[];
+};
+
+type ProjectItem = DetailItem & {
+  plaque: string;
 };
 
 type ChatMessage = {
@@ -182,12 +187,44 @@ const EXPERIENCE_ITEMS = [
   ["2024", "Administrative app builder for document automation and internal workflows"],
 ] as const;
 
-const PROJECT_ITEMS = [
-  "HR and administration desktop suite",
-  "Freelance client API platforms",
-  "Educational creator ecosystem",
-  "Hackathon and club prototypes",
-] as const;
+const PROJECT_ITEMS: ProjectItem[] = [
+  {
+    title: "Darak Estate Platform",
+    plaque: "Darak Estate Platform",
+    eyebrow: "Live on Vercel",
+    body: "A full-stack real estate platform for the Algerian market with verified listings, safe messaging, saved searches, viewing appointments, and role-based dashboards.",
+    meta: "Next.js 14 / Prisma / PostgreSQL / RTL product design",
+    links: [
+      { label: "Live app", href: "https://fikra-tech-mauve.vercel.app" },
+      { label: "Code", href: "https://github.com/tayebzitouni/estate" },
+    ],
+  },
+  {
+    title: "Masbah Membership System",
+    plaque: "Masbah Membership System",
+    eyebrow: "Live on Vercel",
+    body: "An Arabic-first membership and associations management system for the Olympic swimming pool of Setif, covering subscribers, associations, payments, cards, and reporting.",
+    meta: "React / Vite / Electron / .NET desktop packaging",
+    links: [
+      { label: "Live app", href: "https://masbah-source.vercel.app" },
+      { label: "Code", href: "https://github.com/tayebzitouni/Piscine" },
+    ],
+  },
+  {
+    title: "HR and administration desktop suite",
+    plaque: "HR and admin suite",
+    eyebrow: "Client operations",
+    body: "A desktop workflow suite built to automate internal administration, reduce repetitive document handling, and improve the reliability of day-to-day HR processes.",
+    meta: "C# / .NET / SQL Server / document automation",
+  },
+  {
+    title: "Educational creator ecosystem",
+    plaque: "Educational creator ecosystem",
+    eyebrow: "Audience product",
+    body: "A system of educational content, publishing workflows, and student-facing experiences shaped by teaching, distribution, and long-term audience growth.",
+    meta: "Content systems / product thinking / audience operations",
+  },
+];
 
 const SKILLS_GROUPS = [
   ["Languages", "C#, C++, JavaScript, Java, Pascal"],
@@ -237,11 +274,12 @@ const ROOM_DETAILS: Record<RoomId, DetailItem[]> = {
     body: "A practical stage in the portfolio story, focused on learning by shipping systems and solving operational problems.",
     meta: "Delivery record",
   })),
-  projects: PROJECT_ITEMS.map((title, index) => ({
+  projects: PROJECT_ITEMS.map(({ title, eyebrow, body, meta, links }) => ({
     title,
-    eyebrow: `Project ${index + 1}`,
-    body: "A selected build that represents applied engineering, client thinking, and the ability to turn requirements into working software.",
-    meta: "Selected work",
+    eyebrow,
+    body,
+    meta,
+    links,
   })),
   skills: SKILLS_GROUPS.map(([title, body]) => ({
     title,
@@ -821,7 +859,7 @@ function ExhibitCore({ room }: { room: Room }) {
   );
 }
 
-function AboutExhibit({ room }: { room: Room }) {
+function AboutExhibit({ room, isFocused }: { room: Room; isFocused: boolean }) {
   const center = getRoomCenter(room);
   return (
     <group position={[center.x, 0, center.z]}>
@@ -830,149 +868,173 @@ function AboutExhibit({ room }: { room: Room }) {
         <circleGeometry args={[2.2, 64]} />
         <meshStandardMaterial color={room.color} emissive={room.color} emissiveIntensity={1.4} transparent opacity={0.12} />
       </mesh>
-      {[
-        [-2.1, 0.75, -2.8, "3+", "Years building"],
-        [2.1, 0.75, -2.8, "10+", "Projects shipped"],
-        [-2.1, 0.75, 2.8, "15K+", "YouTube audience"],
-        [2.1, 0.75, 2.8, "3", "Markets served"],
-      ].map(([x, y, z, value, label]) => (
-        <Float key={label as string} speed={1.6} rotationIntensity={0.2} floatIntensity={0.5}>
-          <mesh position={[x as number, y as number, z as number]}>
-            <boxGeometry args={[1.55, 1.55, 1.55]} />
-            <meshStandardMaterial color="#0b1220" emissive={room.color} emissiveIntensity={0.35} />
-          </mesh>
-          <Html position={[x as number, y as number, z as number]} center distanceFactor={12} style={{ pointerEvents: "none" }}>
-            <div className="atlas-room-mini">
-              <strong style={{ color: room.accent }}>{value}</strong>
-              <span>{label}</span>
-            </div>
-          </Html>
-        </Float>
-      ))}
-      <WorldPlaque position={[-3.6, 2.1, 0]} room={room} title="Origin">
-        {ABOUT_COPY.map((line) => <p key={line}>{line}</p>)}
-      </WorldPlaque>
-      <WorldPlaque position={[3.6, 2, 0]} room={room} title="Principles">
-        <div className="atlas-room-chip-list">
-          {["Clean Architecture", "CQRS", "SOLID", "ASP.NET Core", "WPF", "SQL Server"].map((chip) => (
-            <span key={chip}>{chip}</span>
-          ))}
-        </div>
-      </WorldPlaque>
-    </group>
-  );
-}
-
-function ExperienceExhibit({ room }: { room: Room }) {
-  const center = getRoomCenter(room);
-  return (
-    <group position={[center.x, 0, center.z]}>
-      <ExhibitCore room={room} />
-      {EXPERIENCE_ITEMS.map(([date, title], index) => (
-        <group key={title} position={[-2.8 + index * 2.8, 0, 3]}>
-          <mesh position={[0, 1.1 + index * 0.18, 0]}>
-            <boxGeometry args={[0.54, 2.2 + index * 0.35, 0.54]} />
-            <meshStandardMaterial color="#0c1520" emissive={room.color} emissiveIntensity={0.4} />
-          </mesh>
-          <WorldPlaque position={[0, 3.1 + index * 0.18, 0]} room={room} title={date} width={200}>
-            <p>{title}</p>
-          </WorldPlaque>
-        </group>
-      ))}
-      <WorldPlaque position={[0, 2.2, -3.3]} room={room} title="Experience">
-        <p>Practical backend and desktop engineering, with a strong bias for delivery, clarity, and durable architecture.</p>
-      </WorldPlaque>
-    </group>
-  );
-}
-
-function ProjectsExhibit({ room }: { room: Room }) {
-  const center = getRoomCenter(room);
-  return (
-    <group position={[center.x, 0, center.z]}>
-      <ExhibitCore room={room} />
-      {PROJECT_ITEMS.map((project, index) => (
-        <Float key={project} speed={1.5 + index * 0.12} rotationIntensity={0.24} floatIntensity={0.55}>
-          <mesh position={[-2.7 + (index % 2) * 5.4, 1.25 + Math.floor(index / 2) * 1.45, -2.2 + (index % 2) * 0.3]}>
-            <boxGeometry args={[2.2, 1.18, 0.12]} />
-            <meshStandardMaterial color="#09121d" emissive={room.color} emissiveIntensity={0.28} />
-          </mesh>
-          <WorldPlaque position={[-2.7 + (index % 2) * 5.4, 1.25 + Math.floor(index / 2) * 1.45, -2.05 + (index % 2) * 0.3]} room={room} title={`Project ${index + 1}`} width={210}>
-            <p>{project}</p>
-          </WorldPlaque>
-        </Float>
-      ))}
-    </group>
-  );
-}
-
-function SkillsExhibit({ room }: { room: Room }) {
-  const center = getRoomCenter(room);
-  return (
-    <group position={[center.x, 0, center.z]}>
-      <ExhibitCore room={room} />
-      {SKILLS_GROUPS.map(([label, value], index) => (
-        <WorldPlaque key={label} position={[-3.2 + (index % 2) * 6.4, 1.8 + Math.floor(index / 2) * 1.4, 3.2]} room={room} title={label} width={220}>
-          <p>{value}</p>
+      {!isFocused ? (
+        <>
+        {[
+          [-2.1, 0.75, -2.8, "3+", "Years building"],
+          [2.1, 0.75, -2.8, "10+", "Projects shipped"],
+          [-2.1, 0.75, 2.8, "15K+", "YouTube audience"],
+          [2.1, 0.75, 2.8, "3", "Markets served"],
+        ].map(([x, y, z, value, label]) => (
+          <Float key={label as string} speed={1.6} rotationIntensity={0.2} floatIntensity={0.5}>
+            <mesh position={[x as number, y as number, z as number]}>
+              <boxGeometry args={[1.55, 1.55, 1.55]} />
+              <meshStandardMaterial color="#0b1220" emissive={room.color} emissiveIntensity={0.35} />
+            </mesh>
+            <Html position={[x as number, y as number, z as number]} center distanceFactor={12} style={{ pointerEvents: "none" }}>
+              <div className="atlas-room-mini">
+                <strong style={{ color: room.accent }}>{value}</strong>
+                <span>{label}</span>
+              </div>
+            </Html>
+          </Float>
+        ))}
+        <WorldPlaque position={[-3.6, 2.1, 0]} room={room} title="Origin">
+          {ABOUT_COPY.map((line) => <p key={line}>{line}</p>)}
         </WorldPlaque>
-      ))}
-      {[0, 1, 2, 3].map((index) => (
-        <Float key={index} speed={1.8 + index * 0.15} rotationIntensity={0.35} floatIntensity={0.65}>
-          <mesh position={[Math.cos(index * (Math.PI / 2)) * 2.5, 1.4, Math.sin(index * (Math.PI / 2)) * 2.5]}>
-            <sphereGeometry args={[0.32, 18, 18]} />
+        <WorldPlaque position={[3.6, 2, 0]} room={room} title="Principles">
+          <div className="atlas-room-chip-list">
+            {["Clean Architecture", "CQRS", "SOLID", "ASP.NET Core", "WPF", "SQL Server"].map((chip) => (
+              <span key={chip}>{chip}</span>
+            ))}
+          </div>
+        </WorldPlaque>
+        </>
+      ) : null}
+    </group>
+  );
+}
+
+function ExperienceExhibit({ room, isFocused }: { room: Room; isFocused: boolean }) {
+  const center = getRoomCenter(room);
+  return (
+    <group position={[center.x, 0, center.z]}>
+      <ExhibitCore room={room} />
+      {!isFocused ? (
+        <>
+        {EXPERIENCE_ITEMS.map(([date, title], index) => (
+          <group key={title} position={[-2.8 + index * 2.8, 0, 3]}>
+            <mesh position={[0, 1.1 + index * 0.18, 0]}>
+              <boxGeometry args={[0.54, 2.2 + index * 0.35, 0.54]} />
+              <meshStandardMaterial color="#0c1520" emissive={room.color} emissiveIntensity={0.4} />
+            </mesh>
+            <WorldPlaque position={[0, 3.1 + index * 0.18, 0]} room={room} title={date} width={200}>
+              <p>{title}</p>
+            </WorldPlaque>
+          </group>
+        ))}
+        <WorldPlaque position={[0, 2.2, -3.3]} room={room} title="Experience">
+          <p>Practical backend and desktop engineering, with a strong bias for delivery, clarity, and durable architecture.</p>
+        </WorldPlaque>
+        </>
+      ) : null}
+    </group>
+  );
+}
+
+function ProjectsExhibit({ room, isFocused }: { room: Room; isFocused: boolean }) {
+  const center = getRoomCenter(room);
+  return (
+    <group position={[center.x, 0, center.z]}>
+      <ExhibitCore room={room} />
+      {!isFocused ? (
+        <>
+        {PROJECT_ITEMS.map((project, index) => (
+          <Float key={project.title} speed={1.5 + index * 0.12} rotationIntensity={0.24} floatIntensity={0.55}>
+            <mesh position={[-2.7 + (index % 2) * 5.4, 1.25 + Math.floor(index / 2) * 1.45, -2.2 + (index % 2) * 0.3]}>
+              <boxGeometry args={[2.2, 1.18, 0.12]} />
+              <meshStandardMaterial color="#09121d" emissive={room.color} emissiveIntensity={0.28} />
+            </mesh>
+            <WorldPlaque position={[-2.7 + (index % 2) * 5.4, 1.25 + Math.floor(index / 2) * 1.45, -2.05 + (index % 2) * 0.3]} room={room} title={`Project ${index + 1}`} width={210}>
+              <p>{project.plaque}</p>
+            </WorldPlaque>
+          </Float>
+        ))}
+        </>
+      ) : null}
+    </group>
+  );
+}
+
+function SkillsExhibit({ room, isFocused }: { room: Room; isFocused: boolean }) {
+  const center = getRoomCenter(room);
+  return (
+    <group position={[center.x, 0, center.z]}>
+      <ExhibitCore room={room} />
+      {!isFocused ? (
+        <>
+        {SKILLS_GROUPS.map(([label, value], index) => (
+          <WorldPlaque key={label} position={[-3.2 + (index % 2) * 6.4, 1.8 + Math.floor(index / 2) * 1.4, 3.2]} room={room} title={label} width={220}>
+            <p>{value}</p>
+          </WorldPlaque>
+        ))}
+        {[0, 1, 2, 3].map((index) => (
+          <Float key={index} speed={1.8 + index * 0.15} rotationIntensity={0.35} floatIntensity={0.65}>
+            <mesh position={[Math.cos(index * (Math.PI / 2)) * 2.5, 1.4, Math.sin(index * (Math.PI / 2)) * 2.5]}>
+              <sphereGeometry args={[0.32, 18, 18]} />
             <meshStandardMaterial color={room.accent} emissive={room.color} emissiveIntensity={1.6} />
           </mesh>
         </Float>
-      ))}
+        ))}
+        </>
+      ) : null}
     </group>
   );
 }
 
-function EducationExhibit({ room }: { room: Room }) {
+function EducationExhibit({ room, isFocused }: { room: Room; isFocused: boolean }) {
   const center = getRoomCenter(room);
   return (
     <group position={[center.x, 0, center.z]}>
       <ExhibitCore room={room} />
-      {EDUCATION_ITEMS.map((item, index) => (
-        <WorldPlaque key={item} position={[-5.2 + index * 3.45, 2.15 + (index % 2) * 0.5, -3.2 + (index % 2) * 2.4]} room={room} title={`Signal ${String(index + 1).padStart(2, "0")}`} width={210}>
-          <p>{item}</p>
-        </WorldPlaque>
-      ))}
+      {!isFocused ? (
+        <>
+        {EDUCATION_ITEMS.map((item, index) => (
+          <WorldPlaque key={item} position={[-5.2 + index * 3.45, 2.15 + (index % 2) * 0.5, -3.2 + (index % 2) * 2.4]} room={room} title={`Signal ${String(index + 1).padStart(2, "0")}`} width={210}>
+            <p>{item}</p>
+          </WorldPlaque>
+        ))}
+        </>
+      ) : null}
     </group>
   );
 }
 
-function ContactExhibit({ room }: { room: Room }) {
+function ContactExhibit({ room, isFocused }: { room: Room; isFocused: boolean }) {
   const center = getRoomCenter(room);
   return (
     <group position={[center.x, 0, center.z]}>
       <ExhibitCore room={room} />
-      <WorldPlaque position={[0, 2.2, -3.3]} room={room} title="Open channel" width={280}>
-        <p>Open to freelance projects, long-term collaboration, and product teams that want disciplined engineering.</p>
-      </WorldPlaque>
-      {CONTACT_ITEMS.map(([label, value], index) => (
-        <WorldPlaque key={label} position={[-4.2 + (index % 2) * 8.4, 1.9 + Math.floor(index / 2) * 1.35, 2.9]} room={room} title={label} width={240}>
-          <p>{value}</p>
+      {!isFocused ? (
+        <>
+        <WorldPlaque position={[0, 2.2, -3.3]} room={room} title="Open channel" width={280}>
+          <p>Open to freelance projects, long-term collaboration, and product teams that want disciplined engineering.</p>
         </WorldPlaque>
-      ))}
+        {CONTACT_ITEMS.map(([label, value], index) => (
+          <WorldPlaque key={label} position={[-4.2 + (index % 2) * 8.4, 1.9 + Math.floor(index / 2) * 1.35, 2.9]} room={room} title={label} width={240}>
+            <p>{value}</p>
+          </WorldPlaque>
+        ))}
+        </>
+      ) : null}
     </group>
   );
 }
 
-function RoomExhibit({ room }: { room: Room }) {
+function RoomExhibit({ room, isFocused }: { room: Room; isFocused: boolean }) {
   switch (room.id) {
     case "about":
-      return <AboutExhibit room={room} />;
+      return <AboutExhibit room={room} isFocused={isFocused} />;
     case "experience":
-      return <ExperienceExhibit room={room} />;
+      return <ExperienceExhibit room={room} isFocused={isFocused} />;
     case "projects":
-      return <ProjectsExhibit room={room} />;
+      return <ProjectsExhibit room={room} isFocused={isFocused} />;
     case "skills":
-      return <SkillsExhibit room={room} />;
+      return <SkillsExhibit room={room} isFocused={isFocused} />;
     case "education":
-      return <EducationExhibit room={room} />;
+      return <EducationExhibit room={room} isFocused={isFocused} />;
     case "contact":
-      return <ContactExhibit room={room} />;
+      return <ContactExhibit room={room} isFocused={isFocused} />;
   }
 }
 
@@ -1123,39 +1185,56 @@ function ArrowPad({ inputRef }: { inputRef: MutableRefObject<MoveInput> }) {
 function DetailDeck({
   room,
   selected,
+  isOpen,
+  onToggle,
   onSelect,
   onClose,
 }: {
   room: Room | null;
   selected: DetailItem | null;
+  isOpen: boolean;
+  onToggle: () => void;
   onSelect: (detail: DetailItem) => void;
   onClose: () => void;
 }) {
   if (!room) return null;
 
   const details = ROOM_DETAILS[room.id];
+  const shouldShowCards = isOpen && !selected;
 
   return (
     <div className="atlas-detail-dock" style={{ borderColor: `${room.color}44` }}>
-      <div className="atlas-detail-dock__cards">
-        {details.map((detail) => (
-          <button
-            key={`${detail.eyebrow}-${detail.title}`}
-            className="atlas-detail-card"
-            style={{
-              borderColor: selected?.title === detail.title ? `${room.color}cc` : `${room.color}33`,
-              boxShadow: selected?.title === detail.title ? `0 0 24px ${room.color}24` : "none",
-            }}
-            onClick={() => onSelect(detail)}
-          >
-            <span style={{ color: room.accent }}>{detail.eyebrow}</span>
-            <strong>{detail.title}</strong>
-            <small>{detail.meta}</small>
-          </button>
-        ))}
-      </div>
+      {isOpen ? (
+        <button className="atlas-detail-toggle" type="button" onClick={onToggle}>
+          {selected ? "Change selection" : "Hide room details"}
+        </button>
+      ) : (
+        <button className="atlas-detail-toggle" type="button" onClick={onToggle}>
+          Explore {room.name}
+        </button>
+      )}
 
-      {selected ? (
+      {shouldShowCards ? (
+        <div className="atlas-detail-dock__cards">
+          {details.map((detail) => (
+            <button
+              key={`${detail.eyebrow}-${detail.title}`}
+              className="atlas-detail-card"
+              style={{
+                borderColor: selected?.title === detail.title ? `${room.color}cc` : `${room.color}33`,
+                boxShadow: selected?.title === detail.title ? `0 0 24px ${room.color}24` : "none",
+              }}
+              onClick={() => onSelect(detail)}
+            >
+              <span style={{ color: room.accent }}>{detail.eyebrow}</span>
+              <strong>{detail.title}</strong>
+              <small>{detail.meta}</small>
+            </button>
+          ))}
+        </div>
+      ) : null}
+
+      {isOpen && selected ? (
         <div className="atlas-detail-panel" style={{ borderColor: `${room.color}55` }}>
           <button className="atlas-detail-panel__close" aria-label="Close details" onClick={onClose}>
             <X aria-hidden="true" />
@@ -1164,6 +1243,15 @@ function DetailDeck({
           <strong>{selected.title}</strong>
           <p>{selected.body}</p>
           <small>{selected.meta}</small>
+          {selected.links?.length ? (
+            <div className="atlas-detail-links">
+              {selected.links.map((link) => (
+                <a key={link.href} className="atlas-detail-link" href={link.href} target="_blank" rel="noreferrer">
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          ) : null}
         </div>
       ) : null}
     </div>
@@ -1239,6 +1327,7 @@ export default function WorldScene() {
   const [phase, setPhase] = useState<Phase>("intro");
   const [activeRoom, setActiveRoom] = useState<Room | null>(null);
   const [selectedDetail, setSelectedDetail] = useState<DetailItem | null>(null);
+  const [isDetailDeckOpen, setIsDetailDeckOpen] = useState(false);
   const [isGuideNear, setIsGuideNear] = useState(false);
   const [guideInput, setGuideInput] = useState("");
   const [guideMessages, setGuideMessages] = useState<ChatMessage[]>([
@@ -1253,6 +1342,7 @@ export default function WorldScene() {
 
   useEffect(() => {
     setSelectedDetail(null);
+    setIsDetailDeckOpen(false);
   }, [activeRoom?.id]);
 
   if (webgl === null) return null;
@@ -1323,7 +1413,11 @@ export default function WorldScene() {
             <RoomBeacon key={`${room.id}-beacon`} room={room} />
           ))}
           {ROOMS.map((room) => (
-            <RoomExhibit key={`${room.id}-exhibit`} room={room} />
+            <RoomExhibit
+              key={`${room.id}-exhibit`}
+              room={room}
+              isFocused={activeRoom?.id === room.id && isDetailDeckOpen}
+            />
           ))}
           <GuideAgent speech={latestGuideSpeech} isNear={isGuideNear} />
 
@@ -1367,8 +1461,20 @@ export default function WorldScene() {
         <DetailDeck
           room={activeRoom}
           selected={selectedDetail}
+          isOpen={isDetailDeckOpen}
+          onToggle={() => {
+            if (selectedDetail) {
+              setSelectedDetail(null);
+              return;
+            }
+
+            setIsDetailDeckOpen((open) => !open);
+          }}
           onSelect={setSelectedDetail}
-          onClose={() => setSelectedDetail(null)}
+          onClose={() => {
+            setSelectedDetail(null);
+            setIsDetailDeckOpen(false);
+          }}
         />
 
         <GuideChat
