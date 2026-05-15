@@ -1,14 +1,17 @@
-<!doctype html><html><head><meta charset="utf-8"/><title>Leen Company API Documentation</title><style>
-    body{font-family:Inter,Arial,sans-serif;margin:0;color:#111827;background:#f8fafc} main{max-width:900px;margin:0 auto;padding:48px}
-    h1{font-size:42px;margin:0 0 8px} h2{margin-top:30px;color:#0f172a} p,li{font-size:15px;line-height:1.7;color:#374151}
-    .hero{border-bottom:4px solid #fbbf24;padding-bottom:20px}.meta{color:#64748b}.shot{width:100%;border:1px solid #dbe3ef;border-radius:8px;margin-top:14px}
-    .chips span{display:inline-block;margin:0 8px 8px 0;padding:7px 10px;border-radius:999px;background:#e5e7eb;color:#111827;font-size:13px}
-    a{color:#0f766e}
+<!doctype html><html><head><meta charset="utf-8"/><title>Leen Company API - Cahier des charges</title><style>
+    body{font-family:Inter,Arial,sans-serif;margin:0;color:#111827;background:#f8fafc} main{max-width:960px;margin:0 auto;padding:46px}
+    h1{font-size:42px;margin:0 0 8px} h2{margin-top:30px;color:#0f172a;border-bottom:1px solid #dbe3ef;padding-bottom:8px} h3{margin:18px 0 6px}
+    p,li,td{font-size:15px;line-height:1.7;color:#374151}.hero{border-bottom:4px solid #0f766e;padding-bottom:20px}.meta{color:#64748b;text-transform:uppercase;letter-spacing:.12em;font-size:12px}
+    .shot{width:100%;border:1px solid #dbe3ef;border-radius:8px;margin-top:12px}.chips span{display:inline-block;margin:0 8px 8px 0;padding:7px 10px;border-radius:999px;background:#e5e7eb;color:#111827;font-size:13px}
+    table{width:100%;border-collapse:collapse;margin-top:10px}td{border:1px solid #dbe3ef;padding:10px;vertical-align:top}td:first-child{font-weight:700;width:210px;color:#111827}.note{padding:12px;background:#fff7ed;border:1px solid #fed7aa;border-radius:8px}a{color:#0f766e}
   </style></head><body><main>
-    <section class="hero"><p class="meta">Portfolio project documentation</p><h1>Leen Company API</h1><p>Business backend for services, projects, partners, marketers, invoices, offers, payments, bank accounts and PDF reports.</p></section>
-    <h2>Main Features</h2><ul><li>Services, projects and partners</li><li>Invoices and price offers</li><li>Payments, accounts and fixed assets</li><li>PDF and financial report generation</li></ul>
-    <h2>Technologies Used</h2><div class="chips"><span>ASP.NET Core 8</span><span>Entity Framework Core</span><span>SQL Server</span><span>Docker</span><span>PDF generation</span></div>
-    <h2>How The Project Works</h2><p>REST API with business, data and infrastructure layers.</p>
-    <h2>Screenshot</h2><img class="shot" src="../screenshots/leen-company-dashboard.svg" alt="Leen Company API screenshot"/>
-    <h2>Links</h2><p><strong>GitHub:</strong> <a href="https://github.com/AbdullahAliSapry/lenCombany-back">https://github.com/AbdullahAliSapry/lenCombany-back</a></p><p><strong>Live demo:</strong> Frontend scaffold ready for Vercel deployment</p>
+    <section class="hero"><p class="meta">Cahier des charges / Portfolio documentation</p><h1>Leen Company API</h1><p><strong>Business backend</strong></p><p>Backend services for services, projects, partners, marketers, invoices, price offers, payments, bank accounts, fixed assets, PDF documents and reports.</p></section>
+    <h2>1. Contexte du projet</h2><p>The backend supports a Saudi company platform. The included frontend dashboard is a portfolio/demo interface for explaining API areas and checking a backend URL.</p>
+    <h2>2. Objectifs</h2><ul><li>Business content</li><li>Invoices and offers</li><li>Payments</li><li>PDF generation</li><li>Docker deployment files</li></ul>
+    <h2>3. Acteurs</h2><ul><li>Administrator</li><li>Client</li><li>Partner</li><li>Marketer</li><li>Accounting user</li></ul>
+    <h2>4. Interfaces et fonctions principales</h2><table><tr><td>Frontend API dashboard</td><td>Presents commercial, finance, document and deployment modules.</td></tr><tr><td>Service/project endpoints</td><td>Manage public services, projects and uploaded media.</td></tr><tr><td>Partner/marketer endpoints</td><td>Handle partners, referral/marketer flows and social links.</td></tr><tr><td>Finance endpoints</td><td>Invoices, price offers, payments, bank accounts and fixed assets.</td></tr><tr><td>Document generation</td><td>PDF invoices, price offers, reports and business card outputs.</td></tr></table>
+    <h2>5. Technologies utilisees</h2><div class="chips"><span>ASP.NET Core 8</span><span>Entity Framework Core</span><span>SQL Server</span><span>Docker</span><span>QuestPDF/iText</span></div>
+    <h2>6. Travail en equipe / collaboration</h2><p>Collaboration project: the repository is owned by another account, so the portfolio presents it as team work and avoids public links that visitors cannot open.</p>
+    <h2>7. Capture d'ecran reelle</h2><img class="shot" src="../screenshots-real/leen-company-real.png" alt="Leen Company API real screenshot"/>
+    <h2>8. Liens</h2><p><strong>Repository:</strong> Private/team repository access</p><p><strong>Demo:</strong> Static frontend prepared locally; Vercel deployment requires account login.</p>
   </main></body></html>

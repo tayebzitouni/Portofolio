@@ -7,225 +7,218 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const publicDir = join(root, "public");
 const docsDir = join(publicDir, "docs");
 const htmlDir = join(publicDir, "docs-html");
-const shotsDir = join(publicDir, "screenshots");
+const realShotsDir = join(publicDir, "screenshots-real");
 
 mkdirSync(docsDir, { recursive: true });
 mkdirSync(htmlDir, { recursive: true });
-mkdirSync(shotsDir, { recursive: true });
 
 const projects = [
   {
     slug: "camatic-piscine",
     title: "CAmatic Piscine",
-    description: "Windows desktop system for swimming pool operations, memberships, cards, payments, scheduling and reports.",
-    features: ["Subscriber and association management", "Membership renewal, pause and recovery workflows", "Access cards, devices and time slots", "Statistics and printable reports"],
+    category: "Desktop operations system",
+    description: "A Windows desktop system for swimming pool and facility operations: subscribers, associations, access cards, memberships, payments, time slots, devices and reports.",
+    context: "The application is an operational tool used by staff who need fast data entry and reliable daily management. It was built in a professional team context around a legacy desktop stack and client-specific workflows.",
+    actors: ["Administrator", "Reception/operations staff", "Accounting user", "Access/device manager"],
+    interfaces: [
+      ["Authentication", "Login screen for username and password before staff can access the management modules."],
+      ["Home/Dashboard", "Entry point for daily operations and navigation toward visitors, cards, devices, subscriptions and reports."],
+      ["Visitors/Subscribers", "Create, update, search and inspect visitor/subscriber records."],
+      ["Cards", "Assign cards, mark lost cards, return cards and manage access credentials."],
+      ["Subscriptions", "Renew, pause and recover individual or club subscriptions."],
+      ["Configuration", "Manage clubs, associations, time zones, devices and system parameters."],
+      ["Reporting/Statistics", "Generate operational reports and statistics for follow-up."],
+    ],
+    features: ["Subscriber management", "Membership lifecycle", "Card/access control", "Payments and reporting", "Configuration of clubs, devices and time slots"],
     tech: ["C#", ".NET Framework 4.8", "WPF", "SQL Server", "MVVM", "Crystal Reports"],
+    teamwork: "Collaboration project: my work is presented as part of a larger professional codebase, with attention to existing modules, client workflow constraints and maintainability.",
+    screenshot: "camatic-real.png",
     github: "https://github.com/tayebzitouni/Algematic_pisicne_Myversion",
-    live: "Desktop application",
-    api: "Desktop frontend with service and core modules.",
-    accent: "#38bdf8",
+    live: "Desktop application, not deployable to Vercel.",
   },
   {
     slug: "dark-store-api",
-    shot: "dark-store-dashboard",
     title: "Dark Store API",
-    description: "Layered e-commerce backend with products, categories, carts, favorites, inventory, reviews, authentication and media uploads.",
-    features: ["Product catalog and inventory", "Cart and favorites workflows", "JWT authentication and roles", "Redis-ready infrastructure"],
-    tech: ["ASP.NET Core 9", "Entity Framework Core", "SQL Server", "JWT", "Redis"],
-    github: "https://github.com/AbdullahAliSapry/Dark_Store_Back",
-    live: "Frontend scaffold ready for Vercel deployment",
-    api: "REST API with Clean Architecture-style layers.",
-    accent: "#22c55e",
+    category: "E-commerce backend",
+    description: "A layered ASP.NET Core backend for products, categories, carts, favorites, inventory, reviews, authentication, vendor/customer roles, uploads and email infrastructure.",
+    context: "The backend supports a dark-store/e-commerce product. The frontend included for the portfolio is a simple API dashboard used to present the backend modules and test API reachability.",
+    actors: ["Administrator", "Customer", "Vendor", "Marketer"],
+    interfaces: [
+      ["Frontend API dashboard", "Shows API base URL, backend modules and a check button for local/deployed API connectivity."],
+      ["Swagger/API interface", "Developer-facing documentation for testing endpoints when the backend is running."],
+      ["Authentication endpoints", "Register, login, refresh token and role-protected actions."],
+      ["Product endpoints", "Manage product catalog, images, categories, variants, prices and stock."],
+      ["Customer endpoints", "Cart, favorites, reviews and contact messages."],
+    ],
+    features: ["Product catalog", "Inventory workflow", "Cart and favorites", "JWT authentication", "Media upload", "Admin/customer/vendor roles"],
+    tech: ["ASP.NET Core 9", "Entity Framework Core", "SQL Server", "JWT", "Redis-ready config"],
+    teamwork: "Collaboration project: repository ownership belongs to another team member/organization, so the public portfolio avoids broken private links and focuses on my contribution to backend structure and integration.",
+    screenshot: "dark-store-real.png",
+    github: "Private/team repository access",
+    live: "Static frontend prepared locally; Vercel deployment requires account login.",
   },
   {
     slug: "el-amel-center-formation",
-    shot: "el-amel-center",
     title: "El Amel Center Formation",
-    description: "Training center desktop application for students, teachers, formations, attendance, payments, reporting and installer packaging.",
-    features: ["Student and teacher management", "Formations, courses and sessions", "Attendance and payment tracking", "Reports and setup installers"],
-    tech: ["C#", ".NET 8", "Windows Forms", "Entity Framework Core", "SQL Server"],
-    github: "https://github.com/tayebzitouni/El-Amel-Center-Formation",
-    live: "Desktop application",
-    api: "Windows frontend with application, core and infrastructure layers.",
-    accent: "#f59e0b",
+    category: "Training center desktop application",
+    description: "A Windows Forms application for a training center: students, teachers, formations, courses, sessions, attendance, payments, reports and installer packaging.",
+    context: "This is a local/private desktop project. It is documented through source inspection and real login screen capture because no GitHub remote is configured for the project.",
+    actors: ["Administrator", "Reception staff", "Teacher manager", "Payment/accounting user"],
+    interfaces: [
+      ["Login", "Email/password authentication before accessing center management."],
+      ["Dashboard", "Central overview and navigation point for the center modules."],
+      ["Students", "Manage student profiles, details, enrollments and students without formations."],
+      ["Teachers", "Manage teachers, attendance and teacher payment operations."],
+      ["Formations and sessions", "Create formations, courses, seances and class enrollment."],
+      ["Payments", "Student payments, event payments, expenses and payment documents."],
+      ["Documents and parameters", "Upload documents, maintain school information and configure application parameters."],
+    ],
+    features: ["Student and teacher records", "Formation/session management", "Attendance", "Payments", "Reports", "Installer packaging"],
+    tech: ["C#", ".NET 8", "Windows Forms", "Entity Framework Core", "SQL Server", "FluentValidation"],
+    teamwork: "Personal/local project structure with layered code. Future public publishing needs a real GitHub remote before the portfolio can show a repository link.",
+    screenshot: "el-amel-real.png",
+    github: "No public GitHub repository configured",
+    live: "Desktop application, not deployable to Vercel.",
   },
   {
     slug: "leen-company-api",
-    shot: "leen-company-dashboard",
     title: "Leen Company API",
-    description: "Business backend for services, projects, partners, marketers, invoices, offers, payments, bank accounts and PDF reports.",
-    features: ["Services, projects and partners", "Invoices and price offers", "Payments, accounts and fixed assets", "PDF and financial report generation"],
-    tech: ["ASP.NET Core 8", "Entity Framework Core", "SQL Server", "Docker", "PDF generation"],
-    github: "https://github.com/AbdullahAliSapry/lenCombany-back",
-    live: "Frontend scaffold ready for Vercel deployment",
-    api: "REST API with business, data and infrastructure layers.",
-    accent: "#fbbf24",
+    category: "Business backend",
+    description: "Backend services for services, projects, partners, marketers, invoices, price offers, payments, bank accounts, fixed assets, PDF documents and reports.",
+    context: "The backend supports a Saudi company platform. The included frontend dashboard is a portfolio/demo interface for explaining API areas and checking a backend URL.",
+    actors: ["Administrator", "Client", "Partner", "Marketer", "Accounting user"],
+    interfaces: [
+      ["Frontend API dashboard", "Presents commercial, finance, document and deployment modules."],
+      ["Service/project endpoints", "Manage public services, projects and uploaded media."],
+      ["Partner/marketer endpoints", "Handle partners, referral/marketer flows and social links."],
+      ["Finance endpoints", "Invoices, price offers, payments, bank accounts and fixed assets."],
+      ["Document generation", "PDF invoices, price offers, reports and business card outputs."],
+    ],
+    features: ["Business content", "Invoices and offers", "Payments", "PDF generation", "Docker deployment files"],
+    tech: ["ASP.NET Core 8", "Entity Framework Core", "SQL Server", "Docker", "QuestPDF/iText"],
+    teamwork: "Collaboration project: the repository is owned by another account, so the portfolio presents it as team work and avoids public links that visitors cannot open.",
+    screenshot: "leen-company-real.png",
+    github: "Private/team repository access",
+    live: "Static frontend prepared locally; Vercel deployment requires account login.",
   },
   {
     slug: "manychat-back",
-    shot: "manychat-dashboard",
     title: "ManyChat Back",
-    description: "Messaging automation backend for Facebook pages, subscribers, keyword replies, messages, broadcasts, plans and SignalR communication.",
-    features: ["Facebook page connection model", "Subscriber and keyword workflows", "Broadcast scheduling", "SignalR messaging hub"],
-    tech: ["ASP.NET Core 9", "SignalR", "Entity Framework Core", "SQL Server", "Redis"],
-    github: "https://github.com/AbdullahAliSapry/ManyChat_Back",
-    live: "Frontend scaffold ready for Vercel deployment",
-    api: "REST API plus real-time messaging hub.",
-    accent: "#818cf8",
+    category: "Messaging automation backend",
+    description: "ASP.NET Core backend for Facebook pages, subscribers, keyword replies, messages, broadcasts, plans, discounts, contact requests, SignalR messaging and Redis services.",
+    context: "The backend supports a chatbot/social automation workflow. The frontend dashboard summarizes the main API flow from connecting pages to measuring campaigns.",
+    actors: ["Administrator", "Page owner", "Subscriber", "Marketing operator"],
+    interfaces: [
+      ["Frontend API dashboard", "Explains connect pages, build replies, broadcast and measure workflow."],
+      ["Facebook pages", "Connect and manage pages attached to users."],
+      ["Subscribers", "Store subscriber information and connect them to messaging workflows."],
+      ["Keyword replies/messages", "Create automated replies and content for conversations."],
+      ["Broadcasts", "Schedule and send campaigns with background services."],
+      ["Real-time messaging", "SignalR hub for messaging updates."],
+    ],
+    features: ["Facebook page management", "Subscribers", "Keyword replies", "Broadcast scheduling", "SignalR hub", "Redis-ready services"],
+    tech: ["ASP.NET Core 9", "SignalR", "Entity Framework Core", "SQL Server", "Redis", "CQRS-style handlers"],
+    teamwork: "Collaboration project: pushed to the team branch. The portfolio wording emphasizes backend contribution inside a shared codebase.",
+    screenshot: "manychat-real.png",
+    github: "Private/team repository access",
+    live: "Static frontend prepared locally; Vercel deployment requires account login.",
   },
   {
     slug: "reconciliation-api",
-    shot: "reconciliation-dashboard",
     title: "Reconciliation API",
-    description: "Financial reconciliation backend for imports, parties, accounts, transaction matching, locks, dashboards and Excel exports.",
-    features: ["Import batch management", "Account and party endpoints", "Unmatched transaction dashboard", "Reconciliation export workflow"],
+    category: "Financial reconciliation backend",
+    description: "Backend for imports, parties, accounts, transaction matching, match locks, dashboard summaries and Excel export workflows.",
+    context: "The API supports financial/accounting users who need to import files, compare transactions, match entries and export reconciliation results.",
+    actors: ["Administrator", "Accountant", "Finance reviewer", "Auditor"],
+    interfaces: [
+      ["Frontend API dashboard", "Explains import, match, dashboard and export modules."],
+      ["Import batches", "Upload and track transaction files."],
+      ["Accounts and parties", "Manage entities involved in financial transactions."],
+      ["Reconciliation dashboard", "View unmatched transactions and global dashboard metrics."],
+      ["Matching workflow", "Create match headers/lines and lock decisions."],
+      ["Export", "Generate reconciliation Excel outputs."],
+    ],
+    features: ["File import", "Party/account management", "Transaction matching", "Dashboard", "Excel export"],
     tech: ["ASP.NET Core 9", "Entity Framework Core", "SQL Server LocalDB", "JWT", "Excel import/export"],
-    github: "https://github.com/AbdullahAliSapry/Reconciliation_Back",
-    live: "Frontend scaffold ready for Vercel deployment",
-    api: "REST API for reconciliation and accounting workflows.",
-    accent: "#5eead4",
+    teamwork: "Collaboration project: pushed to the team branch and presented as backend work inside a shared financial application.",
+    screenshot: "reconciliation-real.png",
+    github: "Private/team repository access",
+    live: "Static frontend prepared locally; Vercel deployment requires account login.",
   },
   {
     slug: "real-estate-application",
     title: "Real Estate Application",
-    description: "Property platform for renting and buying homes with listings, search, filters, contact requests and administration workflows.",
-    features: ["Listings and discovery", "Search and filters", "Contact and administration flows", "Vercel-hosted frontend"],
-    tech: ["TypeScript", "React", "Vercel", "Full-stack web"],
+    category: "Property marketplace",
+    description: "A live property platform for renting and buying homes with search, filters, listing actions and contact workflows.",
+    context: "A public web interface for real estate discovery, focused on quick search and Arabic/French/English access.",
+    actors: ["Visitor", "Property owner", "Registered user", "Administrator"],
+    interfaces: [
+      ["Landing/search page", "Hero search with bedrooms, max price, property type and wilaya filters."],
+      ["Listing flow", "Property cards and listing details for users looking to rent or buy."],
+      ["Add property", "Owner flow for publishing a property listing."],
+      ["Authentication", "Account creation and login actions visible in the header."],
+    ],
+    features: ["Property search", "Listing management", "Filters", "Contact flow", "Multilingual UI"],
+    tech: ["TypeScript", "React", "Vercel", "Property workflows"],
+    teamwork: "Personal/full-stack showcase project.",
+    screenshot: "real-estate-real.png",
     github: "https://github.com/tayebzitouni/estate",
     live: "https://fikra-tech-mauve.vercel.app",
-    api: "Full-stack website with property workflows.",
-    accent: "#06b6d4",
   },
   {
     slug: "maasba-project",
     title: "Maasba Project",
-    description: "Swimming pool operations software for memberships, subscriptions, payments, cards, scheduling and management.",
-    features: ["Membership tracking", "Payments and subscriptions", "Scheduling and cards", "Operations dashboard"],
+    category: "Swimming pool web interface",
+    description: "A web interface for swimming pool operations with Arabic login and administration-oriented workflows.",
+    context: "This is the web-facing interface connected to swimming pool management work, with an Arabic-first login experience.",
+    actors: ["Administrator", "Reception/operations staff"],
+    interfaces: [
+      ["Login", "Arabic login screen with default account hint for local/admin access."],
+      ["Administrative dashboard", "Post-login management area for the swimming pool workflow."],
+      ["Subscriber operations", "Membership and subscriber workflows connected to the broader project context."],
+    ],
+    features: ["Arabic login", "Admin access", "Pool management workflows", "Responsive web frontend"],
     tech: ["TypeScript", "React", "Vite", "Operations workflows"],
+    teamwork: "Portfolio project connected to a broader operations system.",
+    screenshot: "maasba-real.png",
     github: "https://github.com/tayebzitouni/Piscine",
     live: "https://masbah-source.vercel.app",
-    api: "Frontend-oriented operations application.",
-    accent: "#0ea5e9",
-  },
-  {
-    slug: "bank-system",
-    title: "Bank System",
-    description: "C#/.NET WinForms banking desktop application for accounts, deposits, withdrawals and transaction history.",
-    features: ["Account creation", "Deposits and withdrawals", "Transaction history", "SQL Server storage"],
-    tech: ["C#", ".NET", "WinForms", "SQL Server"],
-    github: "Not published yet",
-    live: "Desktop application",
-    api: "Desktop frontend with database storage.",
-    accent: "#10b981",
-  },
-  {
-    slug: "primaryconnect",
-    title: "PrimaryConnect",
-    description: "Education platform backend work connecting parents, teachers and administrators with APIs, notifications and chat features.",
-    features: ["Education platform APIs", "Notifications", "Chat features", "Backend team leadership"],
-    tech: ["C#", "ASP.NET Core", "SignalR", "SQL Server"],
-    github: "https://github.com/tayebzitouni/PrimaryConnect",
-    live: "Backend project",
-    api: "Backend API and real-time communication.",
-    accent: "#a3e635",
-  },
-  {
-    slug: "mini-hr",
-    title: "Mini HR",
-    description: "Desktop HR tool for managing employees and generating work certificates, vacation forms and administrative documents.",
-    features: ["Employee records", "Document automation", "Administrative workflows", "Desktop delivery"],
-    tech: ["C#", ".NET", "Desktop UI", "Document automation"],
-    github: "Not published yet",
-    live: "Desktop application",
-    api: "Desktop frontend for HR operations.",
-    accent: "#fb7185",
-  },
-  {
-    slug: "lyn-company",
-    title: "Lyn Company",
-    description: "Backend services for a Saudi marketplace where clients compare provider offers and administrators manage financial operations.",
-    features: ["Marketplace backend", "Provider offers", "Admin workflows", "Payment and transaction modules"],
-    tech: ["ASP.NET Core", "SQL Server", "Payments", "Administration"],
-    github: "Not published yet",
-    live: "Backend project",
-    api: "Backend services for marketplace workflows.",
-    accent: "#f97316",
-  },
-  {
-    slug: "kay-group",
-    title: "Kay Group",
-    description: "Business management and invoicing application for clients, suppliers, payments, tax, multi-currency reporting and reconciliation.",
-    features: ["Client and supplier management", "Invoices and payments", "Tax and currency handling", "Reporting and reconciliation"],
-    tech: ["C#", "ASP.NET Core", "SQL Server", "Invoicing", "Reporting"],
-    github: "https://github.com/tayebzitouni/KayGroup",
-    live: "Business application",
-    api: "Business management backend and reporting workflows.",
-    accent: "#60a5fa",
-  },
-  {
-    slug: "e-commerce-project",
-    title: "E-commerce Project",
-    description: "Learning project focused on product management, offers, client interaction, sales workflows and digital marketing concepts.",
-    features: ["Product workflows", "Offers and sales", "Client interaction", "Marketing practice"],
-    tech: ["Web development", "E-commerce", "Product thinking"],
-    github: "Not published yet",
-    live: "Learning project",
-    api: "Web learning project.",
-    accent: "#c084fc",
   },
 ];
 
-const esc = (value) => String(value).replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
+const esc = (value) =>
+  String(value).replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
 
-function screenshot(project) {
-  const slug = project.shot ?? project.slug;
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
-    <defs>
-      <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
-        <stop offset="0" stop-color="#07111f"/>
-        <stop offset="1" stop-color="#101827"/>
-      </linearGradient>
-      <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-        <feDropShadow dx="0" dy="24" stdDeviation="22" flood-color="#000" flood-opacity=".35"/>
-      </filter>
-    </defs>
-    <rect width="1280" height="720" fill="url(#bg)"/>
-    <circle cx="160" cy="120" r="170" fill="${project.accent}" opacity=".18"/>
-    <circle cx="1110" cy="90" r="130" fill="#f8fafc" opacity=".07"/>
-    <rect x="80" y="74" width="1120" height="572" rx="10" fill="#0b1220" stroke="rgba(255,255,255,.16)" filter="url(#shadow)"/>
-    <rect x="80" y="74" width="1120" height="58" rx="10" fill="#111827"/>
-    <circle cx="114" cy="103" r="7" fill="#f87171"/><circle cx="140" cy="103" r="7" fill="#fbbf24"/><circle cx="166" cy="103" r="7" fill="#34d399"/>
-    <text x="104" y="188" fill="${project.accent}" font-family="Inter, Arial" font-size="22" letter-spacing="3">${esc(project.title.toUpperCase())}</text>
-    <text x="104" y="250" fill="#f8fafc" font-family="Inter, Arial" font-size="46" font-weight="700">${esc(project.title)}</text>
-    <foreignObject x="104" y="282" width="560" height="120"><p xmlns="http://www.w3.org/1999/xhtml" style="font:24px/1.45 Inter,Arial;color:#cbd5e1;margin:0">${esc(project.description)}</p></foreignObject>
-    ${project.features.map((feature, index) => `<rect x="${104 + (index % 2) * 284}" y="${442 + Math.floor(index / 2) * 72}" width="252" height="48" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.12)"/><text x="${124 + (index % 2) * 284}" y="${473 + Math.floor(index / 2) * 72}" fill="#e5e7eb" font-family="Inter,Arial" font-size="18">${esc(feature)}</text>`).join("")}
-    <rect x="760" y="188" width="330" height="350" rx="12" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.14)"/>
-    <text x="792" y="236" fill="#f8fafc" font-family="Inter,Arial" font-size="24" font-weight="700">Technologies</text>
-    ${project.tech.map((item, index) => `<rect x="792" y="${266 + index * 42}" width="242" height="28" rx="14" fill="${project.accent}" opacity=".16"/><text x="810" y="${286 + index * 42}" fill="#f8fafc" font-family="Inter,Arial" font-size="17">${esc(item)}</text>`).join("")}
-  </svg>`;
+function linkOrText(value) {
+  return String(value).startsWith("http") ? `<a href="${esc(value)}">${esc(value)}</a>` : esc(value);
 }
 
 function docHtml(project) {
-  const shot = `${project.shot ?? project.slug}.svg`;
-  return `<!doctype html><html><head><meta charset="utf-8"/><title>${esc(project.title)} Documentation</title><style>
-    body{font-family:Inter,Arial,sans-serif;margin:0;color:#111827;background:#f8fafc} main{max-width:900px;margin:0 auto;padding:48px}
-    h1{font-size:42px;margin:0 0 8px} h2{margin-top:30px;color:#0f172a} p,li{font-size:15px;line-height:1.7;color:#374151}
-    .hero{border-bottom:4px solid ${project.accent};padding-bottom:20px}.meta{color:#64748b}.shot{width:100%;border:1px solid #dbe3ef;border-radius:8px;margin-top:14px}
-    .chips span{display:inline-block;margin:0 8px 8px 0;padding:7px 10px;border-radius:999px;background:#e5e7eb;color:#111827;font-size:13px}
-    a{color:#0f766e}
+  const screenshotPath = join(realShotsDir, project.screenshot);
+  const screenshotHtml = existsSync(screenshotPath)
+    ? `<img class="shot" src="../screenshots-real/${esc(project.screenshot)}" alt="${esc(project.title)} real screenshot"/>`
+    : `<p class="note">No runnable interface screenshot was available on this machine.</p>`;
+
+  return `<!doctype html><html><head><meta charset="utf-8"/><title>${esc(project.title)} - Cahier des charges</title><style>
+    body{font-family:Inter,Arial,sans-serif;margin:0;color:#111827;background:#f8fafc} main{max-width:960px;margin:0 auto;padding:46px}
+    h1{font-size:42px;margin:0 0 8px} h2{margin-top:30px;color:#0f172a;border-bottom:1px solid #dbe3ef;padding-bottom:8px} h3{margin:18px 0 6px}
+    p,li,td{font-size:15px;line-height:1.7;color:#374151}.hero{border-bottom:4px solid #0f766e;padding-bottom:20px}.meta{color:#64748b;text-transform:uppercase;letter-spacing:.12em;font-size:12px}
+    .shot{width:100%;border:1px solid #dbe3ef;border-radius:8px;margin-top:12px}.chips span{display:inline-block;margin:0 8px 8px 0;padding:7px 10px;border-radius:999px;background:#e5e7eb;color:#111827;font-size:13px}
+    table{width:100%;border-collapse:collapse;margin-top:10px}td{border:1px solid #dbe3ef;padding:10px;vertical-align:top}td:first-child{font-weight:700;width:210px;color:#111827}.note{padding:12px;background:#fff7ed;border:1px solid #fed7aa;border-radius:8px}a{color:#0f766e}
   </style></head><body><main>
-    <section class="hero"><p class="meta">Portfolio project documentation</p><h1>${esc(project.title)}</h1><p>${esc(project.description)}</p></section>
-    <h2>Main Features</h2><ul>${project.features.map((feature) => `<li>${esc(feature)}</li>`).join("")}</ul>
-    <h2>Technologies Used</h2><div class="chips">${project.tech.map((item) => `<span>${esc(item)}</span>`).join("")}</div>
-    <h2>How The Project Works</h2><p>${esc(project.api)}</p>
-    <h2>Screenshot</h2><img class="shot" src="../screenshots/${shot}" alt="${esc(project.title)} screenshot"/>
-    <h2>Links</h2><p><strong>GitHub:</strong> ${project.github.startsWith("http") ? `<a href="${project.github}">${project.github}</a>` : esc(project.github)}</p><p><strong>Live demo:</strong> ${project.live.startsWith("http") ? `<a href="${project.live}">${project.live}</a>` : esc(project.live)}</p>
+    <section class="hero"><p class="meta">Cahier des charges / Portfolio documentation</p><h1>${esc(project.title)}</h1><p><strong>${esc(project.category)}</strong></p><p>${esc(project.description)}</p></section>
+    <h2>1. Contexte du projet</h2><p>${esc(project.context)}</p>
+    <h2>2. Objectifs</h2><ul>${project.features.map((feature) => `<li>${esc(feature)}</li>`).join("")}</ul>
+    <h2>3. Acteurs</h2><ul>${project.actors.map((actor) => `<li>${esc(actor)}</li>`).join("")}</ul>
+    <h2>4. Interfaces et fonctions principales</h2><table>${project.interfaces.map(([name, text]) => `<tr><td>${esc(name)}</td><td>${esc(text)}</td></tr>`).join("")}</table>
+    <h2>5. Technologies utilisees</h2><div class="chips">${project.tech.map((item) => `<span>${esc(item)}</span>`).join("")}</div>
+    <h2>6. Travail en equipe / collaboration</h2><p>${esc(project.teamwork)}</p>
+    <h2>7. Capture d'ecran reelle</h2>${screenshotHtml}
+    <h2>8. Liens</h2><p><strong>Repository:</strong> ${linkOrText(project.github)}</p><p><strong>Demo:</strong> ${linkOrText(project.live)}</p>
   </main></body></html>`;
 }
 
 for (const project of projects) {
-  const shotName = `${project.shot ?? project.slug}.svg`;
-  writeFileSync(join(shotsDir, shotName), screenshot(project));
   writeFileSync(join(htmlDir, `${project.slug}.html`), docHtml(project));
 }
 
@@ -241,4 +234,4 @@ if (existsSync(edge)) {
   }
 }
 
-console.log(`Generated ${projects.length} project screenshots and documentation files.`);
+console.log(`Generated ${projects.length} cahier des charges documents from real captured interfaces.`);

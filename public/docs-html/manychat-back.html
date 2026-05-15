@@ -1,14 +1,17 @@
-<!doctype html><html><head><meta charset="utf-8"/><title>ManyChat Back Documentation</title><style>
-    body{font-family:Inter,Arial,sans-serif;margin:0;color:#111827;background:#f8fafc} main{max-width:900px;margin:0 auto;padding:48px}
-    h1{font-size:42px;margin:0 0 8px} h2{margin-top:30px;color:#0f172a} p,li{font-size:15px;line-height:1.7;color:#374151}
-    .hero{border-bottom:4px solid #818cf8;padding-bottom:20px}.meta{color:#64748b}.shot{width:100%;border:1px solid #dbe3ef;border-radius:8px;margin-top:14px}
-    .chips span{display:inline-block;margin:0 8px 8px 0;padding:7px 10px;border-radius:999px;background:#e5e7eb;color:#111827;font-size:13px}
-    a{color:#0f766e}
+<!doctype html><html><head><meta charset="utf-8"/><title>ManyChat Back - Cahier des charges</title><style>
+    body{font-family:Inter,Arial,sans-serif;margin:0;color:#111827;background:#f8fafc} main{max-width:960px;margin:0 auto;padding:46px}
+    h1{font-size:42px;margin:0 0 8px} h2{margin-top:30px;color:#0f172a;border-bottom:1px solid #dbe3ef;padding-bottom:8px} h3{margin:18px 0 6px}
+    p,li,td{font-size:15px;line-height:1.7;color:#374151}.hero{border-bottom:4px solid #0f766e;padding-bottom:20px}.meta{color:#64748b;text-transform:uppercase;letter-spacing:.12em;font-size:12px}
+    .shot{width:100%;border:1px solid #dbe3ef;border-radius:8px;margin-top:12px}.chips span{display:inline-block;margin:0 8px 8px 0;padding:7px 10px;border-radius:999px;background:#e5e7eb;color:#111827;font-size:13px}
+    table{width:100%;border-collapse:collapse;margin-top:10px}td{border:1px solid #dbe3ef;padding:10px;vertical-align:top}td:first-child{font-weight:700;width:210px;color:#111827}.note{padding:12px;background:#fff7ed;border:1px solid #fed7aa;border-radius:8px}a{color:#0f766e}
   </style></head><body><main>
-    <section class="hero"><p class="meta">Portfolio project documentation</p><h1>ManyChat Back</h1><p>Messaging automation backend for Facebook pages, subscribers, keyword replies, messages, broadcasts, plans and SignalR communication.</p></section>
-    <h2>Main Features</h2><ul><li>Facebook page connection model</li><li>Subscriber and keyword workflows</li><li>Broadcast scheduling</li><li>SignalR messaging hub</li></ul>
-    <h2>Technologies Used</h2><div class="chips"><span>ASP.NET Core 9</span><span>SignalR</span><span>Entity Framework Core</span><span>SQL Server</span><span>Redis</span></div>
-    <h2>How The Project Works</h2><p>REST API plus real-time messaging hub.</p>
-    <h2>Screenshot</h2><img class="shot" src="../screenshots/manychat-dashboard.svg" alt="ManyChat Back screenshot"/>
-    <h2>Links</h2><p><strong>GitHub:</strong> <a href="https://github.com/AbdullahAliSapry/ManyChat_Back">https://github.com/AbdullahAliSapry/ManyChat_Back</a></p><p><strong>Live demo:</strong> Frontend scaffold ready for Vercel deployment</p>
+    <section class="hero"><p class="meta">Cahier des charges / Portfolio documentation</p><h1>ManyChat Back</h1><p><strong>Messaging automation backend</strong></p><p>ASP.NET Core backend for Facebook pages, subscribers, keyword replies, messages, broadcasts, plans, discounts, contact requests, SignalR messaging and Redis services.</p></section>
+    <h2>1. Contexte du projet</h2><p>The backend supports a chatbot/social automation workflow. The frontend dashboard summarizes the main API flow from connecting pages to measuring campaigns.</p>
+    <h2>2. Objectifs</h2><ul><li>Facebook page management</li><li>Subscribers</li><li>Keyword replies</li><li>Broadcast scheduling</li><li>SignalR hub</li><li>Redis-ready services</li></ul>
+    <h2>3. Acteurs</h2><ul><li>Administrator</li><li>Page owner</li><li>Subscriber</li><li>Marketing operator</li></ul>
+    <h2>4. Interfaces et fonctions principales</h2><table><tr><td>Frontend API dashboard</td><td>Explains connect pages, build replies, broadcast and measure workflow.</td></tr><tr><td>Facebook pages</td><td>Connect and manage pages attached to users.</td></tr><tr><td>Subscribers</td><td>Store subscriber information and connect them to messaging workflows.</td></tr><tr><td>Keyword replies/messages</td><td>Create automated replies and content for conversations.</td></tr><tr><td>Broadcasts</td><td>Schedule and send campaigns with background services.</td></tr><tr><td>Real-time messaging</td><td>SignalR hub for messaging updates.</td></tr></table>
+    <h2>5. Technologies utilisees</h2><div class="chips"><span>ASP.NET Core 9</span><span>SignalR</span><span>Entity Framework Core</span><span>SQL Server</span><span>Redis</span><span>CQRS-style handlers</span></div>
+    <h2>6. Travail en equipe / collaboration</h2><p>Collaboration project: pushed to the team branch. The portfolio wording emphasizes backend contribution inside a shared codebase.</p>
+    <h2>7. Capture d'ecran reelle</h2><img class="shot" src="../screenshots-real/manychat-real.png" alt="ManyChat Back real screenshot"/>
+    <h2>8. Liens</h2><p><strong>Repository:</strong> Private/team repository access</p><p><strong>Demo:</strong> Static frontend prepared locally; Vercel deployment requires account login.</p>
   </main></body></html>

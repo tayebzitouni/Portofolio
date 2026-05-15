@@ -1,14 +1,17 @@
-<!doctype html><html><head><meta charset="utf-8"/><title>CAmatic Piscine Documentation</title><style>
-    body{font-family:Inter,Arial,sans-serif;margin:0;color:#111827;background:#f8fafc} main{max-width:900px;margin:0 auto;padding:48px}
-    h1{font-size:42px;margin:0 0 8px} h2{margin-top:30px;color:#0f172a} p,li{font-size:15px;line-height:1.7;color:#374151}
-    .hero{border-bottom:4px solid #38bdf8;padding-bottom:20px}.meta{color:#64748b}.shot{width:100%;border:1px solid #dbe3ef;border-radius:8px;margin-top:14px}
-    .chips span{display:inline-block;margin:0 8px 8px 0;padding:7px 10px;border-radius:999px;background:#e5e7eb;color:#111827;font-size:13px}
-    a{color:#0f766e}
+<!doctype html><html><head><meta charset="utf-8"/><title>CAmatic Piscine - Cahier des charges</title><style>
+    body{font-family:Inter,Arial,sans-serif;margin:0;color:#111827;background:#f8fafc} main{max-width:960px;margin:0 auto;padding:46px}
+    h1{font-size:42px;margin:0 0 8px} h2{margin-top:30px;color:#0f172a;border-bottom:1px solid #dbe3ef;padding-bottom:8px} h3{margin:18px 0 6px}
+    p,li,td{font-size:15px;line-height:1.7;color:#374151}.hero{border-bottom:4px solid #0f766e;padding-bottom:20px}.meta{color:#64748b;text-transform:uppercase;letter-spacing:.12em;font-size:12px}
+    .shot{width:100%;border:1px solid #dbe3ef;border-radius:8px;margin-top:12px}.chips span{display:inline-block;margin:0 8px 8px 0;padding:7px 10px;border-radius:999px;background:#e5e7eb;color:#111827;font-size:13px}
+    table{width:100%;border-collapse:collapse;margin-top:10px}td{border:1px solid #dbe3ef;padding:10px;vertical-align:top}td:first-child{font-weight:700;width:210px;color:#111827}.note{padding:12px;background:#fff7ed;border:1px solid #fed7aa;border-radius:8px}a{color:#0f766e}
   </style></head><body><main>
-    <section class="hero"><p class="meta">Portfolio project documentation</p><h1>CAmatic Piscine</h1><p>Windows desktop system for swimming pool operations, memberships, cards, payments, scheduling and reports.</p></section>
-    <h2>Main Features</h2><ul><li>Subscriber and association management</li><li>Membership renewal, pause and recovery workflows</li><li>Access cards, devices and time slots</li><li>Statistics and printable reports</li></ul>
-    <h2>Technologies Used</h2><div class="chips"><span>C#</span><span>.NET Framework 4.8</span><span>WPF</span><span>SQL Server</span><span>MVVM</span><span>Crystal Reports</span></div>
-    <h2>How The Project Works</h2><p>Desktop frontend with service and core modules.</p>
-    <h2>Screenshot</h2><img class="shot" src="../screenshots/camatic-piscine.svg" alt="CAmatic Piscine screenshot"/>
-    <h2>Links</h2><p><strong>GitHub:</strong> <a href="https://github.com/tayebzitouni/Algematic_pisicne_Myversion">https://github.com/tayebzitouni/Algematic_pisicne_Myversion</a></p><p><strong>Live demo:</strong> Desktop application</p>
+    <section class="hero"><p class="meta">Cahier des charges / Portfolio documentation</p><h1>CAmatic Piscine</h1><p><strong>Desktop operations system</strong></p><p>A Windows desktop system for swimming pool and facility operations: subscribers, associations, access cards, memberships, payments, time slots, devices and reports.</p></section>
+    <h2>1. Contexte du projet</h2><p>The application is an operational tool used by staff who need fast data entry and reliable daily management. It was built in a professional team context around a legacy desktop stack and client-specific workflows.</p>
+    <h2>2. Objectifs</h2><ul><li>Subscriber management</li><li>Membership lifecycle</li><li>Card/access control</li><li>Payments and reporting</li><li>Configuration of clubs, devices and time slots</li></ul>
+    <h2>3. Acteurs</h2><ul><li>Administrator</li><li>Reception/operations staff</li><li>Accounting user</li><li>Access/device manager</li></ul>
+    <h2>4. Interfaces et fonctions principales</h2><table><tr><td>Authentication</td><td>Login screen for username and password before staff can access the management modules.</td></tr><tr><td>Home/Dashboard</td><td>Entry point for daily operations and navigation toward visitors, cards, devices, subscriptions and reports.</td></tr><tr><td>Visitors/Subscribers</td><td>Create, update, search and inspect visitor/subscriber records.</td></tr><tr><td>Cards</td><td>Assign cards, mark lost cards, return cards and manage access credentials.</td></tr><tr><td>Subscriptions</td><td>Renew, pause and recover individual or club subscriptions.</td></tr><tr><td>Configuration</td><td>Manage clubs, associations, time zones, devices and system parameters.</td></tr><tr><td>Reporting/Statistics</td><td>Generate operational reports and statistics for follow-up.</td></tr></table>
+    <h2>5. Technologies utilisees</h2><div class="chips"><span>C#</span><span>.NET Framework 4.8</span><span>WPF</span><span>SQL Server</span><span>MVVM</span><span>Crystal Reports</span></div>
+    <h2>6. Travail en equipe / collaboration</h2><p>Collaboration project: my work is presented as part of a larger professional codebase, with attention to existing modules, client workflow constraints and maintainability.</p>
+    <h2>7. Capture d'ecran reelle</h2><img class="shot" src="../screenshots-real/camatic-real.png" alt="CAmatic Piscine real screenshot"/>
+    <h2>8. Liens</h2><p><strong>Repository:</strong> <a href="https://github.com/tayebzitouni/Algematic_pisicne_Myversion">https://github.com/tayebzitouni/Algematic_pisicne_Myversion</a></p><p><strong>Demo:</strong> Desktop application, not deployable to Vercel.</p>
   </main></body></html>

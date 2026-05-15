@@ -1,14 +1,17 @@
-<!doctype html><html><head><meta charset="utf-8"/><title>Dark Store API Documentation</title><style>
-    body{font-family:Inter,Arial,sans-serif;margin:0;color:#111827;background:#f8fafc} main{max-width:900px;margin:0 auto;padding:48px}
-    h1{font-size:42px;margin:0 0 8px} h2{margin-top:30px;color:#0f172a} p,li{font-size:15px;line-height:1.7;color:#374151}
-    .hero{border-bottom:4px solid #22c55e;padding-bottom:20px}.meta{color:#64748b}.shot{width:100%;border:1px solid #dbe3ef;border-radius:8px;margin-top:14px}
-    .chips span{display:inline-block;margin:0 8px 8px 0;padding:7px 10px;border-radius:999px;background:#e5e7eb;color:#111827;font-size:13px}
-    a{color:#0f766e}
+<!doctype html><html><head><meta charset="utf-8"/><title>Dark Store API - Cahier des charges</title><style>
+    body{font-family:Inter,Arial,sans-serif;margin:0;color:#111827;background:#f8fafc} main{max-width:960px;margin:0 auto;padding:46px}
+    h1{font-size:42px;margin:0 0 8px} h2{margin-top:30px;color:#0f172a;border-bottom:1px solid #dbe3ef;padding-bottom:8px} h3{margin:18px 0 6px}
+    p,li,td{font-size:15px;line-height:1.7;color:#374151}.hero{border-bottom:4px solid #0f766e;padding-bottom:20px}.meta{color:#64748b;text-transform:uppercase;letter-spacing:.12em;font-size:12px}
+    .shot{width:100%;border:1px solid #dbe3ef;border-radius:8px;margin-top:12px}.chips span{display:inline-block;margin:0 8px 8px 0;padding:7px 10px;border-radius:999px;background:#e5e7eb;color:#111827;font-size:13px}
+    table{width:100%;border-collapse:collapse;margin-top:10px}td{border:1px solid #dbe3ef;padding:10px;vertical-align:top}td:first-child{font-weight:700;width:210px;color:#111827}.note{padding:12px;background:#fff7ed;border:1px solid #fed7aa;border-radius:8px}a{color:#0f766e}
   </style></head><body><main>
-    <section class="hero"><p class="meta">Portfolio project documentation</p><h1>Dark Store API</h1><p>Layered e-commerce backend with products, categories, carts, favorites, inventory, reviews, authentication and media uploads.</p></section>
-    <h2>Main Features</h2><ul><li>Product catalog and inventory</li><li>Cart and favorites workflows</li><li>JWT authentication and roles</li><li>Redis-ready infrastructure</li></ul>
-    <h2>Technologies Used</h2><div class="chips"><span>ASP.NET Core 9</span><span>Entity Framework Core</span><span>SQL Server</span><span>JWT</span><span>Redis</span></div>
-    <h2>How The Project Works</h2><p>REST API with Clean Architecture-style layers.</p>
-    <h2>Screenshot</h2><img class="shot" src="../screenshots/dark-store-dashboard.svg" alt="Dark Store API screenshot"/>
-    <h2>Links</h2><p><strong>GitHub:</strong> <a href="https://github.com/AbdullahAliSapry/Dark_Store_Back">https://github.com/AbdullahAliSapry/Dark_Store_Back</a></p><p><strong>Live demo:</strong> Frontend scaffold ready for Vercel deployment</p>
+    <section class="hero"><p class="meta">Cahier des charges / Portfolio documentation</p><h1>Dark Store API</h1><p><strong>E-commerce backend</strong></p><p>A layered ASP.NET Core backend for products, categories, carts, favorites, inventory, reviews, authentication, vendor/customer roles, uploads and email infrastructure.</p></section>
+    <h2>1. Contexte du projet</h2><p>The backend supports a dark-store/e-commerce product. The frontend included for the portfolio is a simple API dashboard used to present the backend modules and test API reachability.</p>
+    <h2>2. Objectifs</h2><ul><li>Product catalog</li><li>Inventory workflow</li><li>Cart and favorites</li><li>JWT authentication</li><li>Media upload</li><li>Admin/customer/vendor roles</li></ul>
+    <h2>3. Acteurs</h2><ul><li>Administrator</li><li>Customer</li><li>Vendor</li><li>Marketer</li></ul>
+    <h2>4. Interfaces et fonctions principales</h2><table><tr><td>Frontend API dashboard</td><td>Shows API base URL, backend modules and a check button for local/deployed API connectivity.</td></tr><tr><td>Swagger/API interface</td><td>Developer-facing documentation for testing endpoints when the backend is running.</td></tr><tr><td>Authentication endpoints</td><td>Register, login, refresh token and role-protected actions.</td></tr><tr><td>Product endpoints</td><td>Manage product catalog, images, categories, variants, prices and stock.</td></tr><tr><td>Customer endpoints</td><td>Cart, favorites, reviews and contact messages.</td></tr></table>
+    <h2>5. Technologies utilisees</h2><div class="chips"><span>ASP.NET Core 9</span><span>Entity Framework Core</span><span>SQL Server</span><span>JWT</span><span>Redis-ready config</span></div>
+    <h2>6. Travail en equipe / collaboration</h2><p>Collaboration project: repository ownership belongs to another team member/organization, so the public portfolio avoids broken private links and focuses on my contribution to backend structure and integration.</p>
+    <h2>7. Capture d'ecran reelle</h2><img class="shot" src="../screenshots-real/dark-store-real.png" alt="Dark Store API real screenshot"/>
+    <h2>8. Liens</h2><p><strong>Repository:</strong> Private/team repository access</p><p><strong>Demo:</strong> Static frontend prepared locally; Vercel deployment requires account login.</p>
   </main></body></html>

@@ -7,16 +7,20 @@ When the visitor asks about Tayeb, use the profile facts below. When the visitor
 Profile:
 - Name: Tayeb Zitouni
 - Role: Software Engineer / .NET Developer
-- Location: Algiers, Algeria
-- Focus: C#, .NET Core, ASP.NET Core, WinForms, WPF, SQL Server, SQLite, REST APIs, clean architecture, CQRS, SOLID
-- Experience: Freelance .NET backend and desktop developer, software engineering student, administrative app builder
+- Location: Algeria
+- Focus: C#, .NET Core, ASP.NET Core, WinForms, WPF, SQL Server, SQLite, REST APIs, ADO.NET, Entity Framework, SignalR, clean architecture, CQRS, SOLID
+- Experience: freelance .NET backend and desktop developer, freelance developer with Algematic SARL, freelance IT help desk and software installation support, web developer intern at ProdigyInfoTech, active member in scientific clubs
 - Projects:
-  - Darak Estate Platform: a full-stack Algerian real estate platform, live at https://fikra-tech-mauve.vercel.app and code at https://github.com/tayebzitouni/estate
-  - Masbah Membership System: an Arabic-first subscriber and associations management system for the Olympic swimming pool of Setif, live at https://masbah-source.vercel.app and code at https://github.com/tayebzitouni/Piscine
-  - HR and administration desktop suite
-  - Educational creator ecosystem
-- Education: Higher School of Computer Science, Algiers; BAC Experimental Sciences 18.17/20
-- Other: 15K+ YouTube subscribers for educational content
+  - Real Estate Application: a platform for renting and buying property, live at https://fikra-tech-mauve.vercel.app and code at https://github.com/tayebzitouni/estate
+  - Maasba Project: operations software for the 8 Mai 1945 swimming pool in Setif, live at https://masbah-source.vercel.app and code at https://github.com/tayebzitouni/Piscine
+  - Bank System: a C#/.NET WinForms banking desktop application
+  - PrimaryConnect: backend work and team leadership for an Algerian education platform, code at https://github.com/tayebzitouni/PrimaryConnect
+  - Mini HR: an HR desktop tool for employee management and automated documents
+  - Lyn Company: backend services for a Saudi marketplace
+  - Kay Group: a Moroccan business management and invoicing application, code at https://github.com/tayebzitouni/KayGroup
+  - E-commerce Project: a learning project focused on sales workflows and digital marketing concepts
+- Education: Computer Science student at the Higher School of Computer Science in Sidi Bel Abbes; Licence Informatique track connected to ESI Alger in 2026; BAC Experimental Sciences 18.17/20
+- Awards and activities: scholarships from the Turkish and Russian governments, problem-solving and cybersecurity competitions, multiple hackathons, 15K+ YouTube subscribers for educational content, freelance community management on social media sales pages
 - Contact: tayebzitouni1122111@gmail.com, +213 554 917 545, github.com/tayebzitouni, linkedin.com/in/tayeb-zitouni
 
 Keep answers concise unless the visitor asks for more depth.
@@ -36,13 +40,16 @@ function fallbackAnswer(question = "") {
     return "You can contact Tayeb by email at tayebzitouni1122111@gmail.com or phone at +213 554 917 545. He is open to freelance work and collaboration.";
   }
   if (text.includes("skill") || text.includes("tech") || text.includes("stack")) {
-    return "Tayeb works mainly with C#, .NET Core, ASP.NET Core, WinForms, WPF, SQL Server, SQLite, REST APIs, and clean architecture patterns.";
+    return "Tayeb works mainly with C#, .NET Core, ASP.NET Core, WinForms, WPF, SQL Server, SQLite, REST APIs, ADO.NET, Entity Framework, SignalR, and clean architecture patterns.";
   }
   if (text.includes("project")) {
-    return "His featured projects now include Darak Estate Platform at https://fikra-tech-mauve.vercel.app, the Masbah Membership System at https://masbah-source.vercel.app, plus HR administration tooling and educational product work.";
+    return "His portfolio includes a real estate platform, the Maasba swimming pool management project, a bank system, PrimaryConnect, Mini HR, Lyn Company backend work, Kay Group, and an e-commerce practice project.";
   }
   if (text.includes("experience")) {
-    return "Tayeb has freelance experience building .NET backend and desktop systems, plus academic and practical software engineering work.";
+    return "Tayeb has freelance experience building .NET backend and desktop systems, plus support work, a web internship, and scientific club participation.";
+  }
+  if (text.includes("education") || text.includes("study") || text.includes("studies") || text.includes("award") || text.includes("activity")) {
+    return "Tayeb studied computer science at the Higher School of Computer Science in Sidi Bel Abbes, has a Licence Informatique track tied to ESI Alger for 2026, earned 18.17 out of 20 in the BAC, received scholarship opportunities from Turkey and Russia, and is active in competitions, hackathons, and educational content creation.";
   }
   return "I can answer general questions when an AI provider key is connected on the server. Right now I am in offline mode, so I can still guide you through Tayeb's portfolio, skills, projects, and client work.";
 }
