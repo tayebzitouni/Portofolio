@@ -200,7 +200,11 @@ const PROJECT_ITEMS: ProjectItem[] = [
     body: "A Windows desktop system built in a professional team context for swimming pool and facility operations. It manages subscribers, associations, memberships, access cards, time slots, devices, payments, renewals, pauses, recoveries, statistics, and printable operational reports.",
     meta: ".NET Framework / WPF / SQL Server / desktop frontend and service modules",
     technologies: ["C#", ".NET Framework 4.8", "WPF", "SQL Server", "MVVM", "Crystal Reports"],
-    screenshots: [{ src: "/screenshots-real/camatic-real.png", alt: "CAmatic Piscine authentication interface" }],
+    screenshots: [
+      { src: "/screenshots-real/camatic-login-real.png", alt: "CAmatic authentication interface" },
+      { src: "/screenshots-real/camatic-dashboard-real.png", alt: "CAmatic main dashboard" },
+      { src: "/screenshots-real/camatic-subscribers-real.png", alt: "CAmatic card and subscriber management interface" },
+    ],
     links: [
       { label: "Code", href: "https://github.com/tayebzitouni/Algematic_pisicne_Myversion" },
       { label: "PDF documentation", href: "/docs/camatic-piscine.pdf" },
@@ -213,8 +217,12 @@ const PROJECT_ITEMS: ProjectItem[] = [
     body: "A layered ASP.NET Core backend delivered in a collaborative team workflow for a dark-store commerce product, covering products, categories, carts, favorites, inventory, reviews, authentication, vendor/customer roles, uploaded media, email, and Redis-ready infrastructure.",
     meta: "Backend API with a generated Vercel-ready frontend dashboard",
     technologies: ["ASP.NET Core 9", "Entity Framework Core", "SQL Server", "JWT", "Redis", "Clean Architecture"],
-    screenshots: [{ src: "/screenshots-real/dark-store-real.png", alt: "Dark Store frontend dashboard interface" }],
+    screenshots: [
+      { src: "/screenshots-real/dark-store-real.png", alt: "Dark Store frontend dashboard interface" },
+      { src: "/screenshots-real/dark-store-mobile-real.png", alt: "Dark Store responsive frontend interface" },
+    ],
     links: [
+      { label: "Code", href: "https://github.com/tayebzitouni/Dark_Store_Back" },
       { label: "PDF documentation", href: "/docs/dark-store-api.pdf" },
     ],
   },
@@ -222,11 +230,17 @@ const PROJECT_ITEMS: ProjectItem[] = [
     title: "El Amel Center Formation",
     plaque: "El Amel Center",
     eyebrow: "Training center desktop app",
-    body: "A Windows Forms management system for a training center, covering students, teachers, formations, courses, sessions, attendance, payments, school information, reports, and installer packaging. The repository is local/private, so the portfolio presents the project through documentation and real interface captures instead of a broken GitHub link.",
+    body: "A Windows Forms management system for a training center, covering students, teachers, formations, courses, sessions, attendance, payments, school information, reports, and installer packaging.",
     meta: ".NET 8 Windows desktop frontend with application, core, and infrastructure layers",
     technologies: ["C#", ".NET 8", "Windows Forms", "Entity Framework Core", "SQL Server", "FluentValidation"],
-    screenshots: [{ src: "/screenshots-real/el-amel-real.png", alt: "El Amel Center login interface" }],
-    links: [{ label: "PDF documentation", href: "/docs/el-amel-center-formation.pdf" }],
+    screenshots: [
+      { src: "/screenshots-real/el-amel-login-real.png", alt: "El Amel Center login interface" },
+      { src: "/screenshots-real/el-amel-dashboard-real.png", alt: "El Amel Center dashboard interface" },
+    ],
+    links: [
+      { label: "Code", href: "https://github.com/tayebzitouni/El-Amel-Center-Formation" },
+      { label: "PDF documentation", href: "/docs/el-amel-center-formation.pdf" },
+    ],
   },
   {
     title: "Leen Company API",
@@ -235,8 +249,12 @@ const PROJECT_ITEMS: ProjectItem[] = [
     body: "Backend services delivered as team work for a Saudi company platform with services, projects, partners, marketers, invoices, price offers, payments, bank accounts, fixed assets, PDF generation, reports, and business profile content.",
     meta: "Backend API with static frontend dashboard generated for portfolio/demo use",
     technologies: ["ASP.NET Core 8", "Entity Framework Core", "SQL Server", "JWT", "Docker", "PDF generation"],
-    screenshots: [{ src: "/screenshots-real/leen-company-real.png", alt: "Leen Company frontend dashboard interface" }],
+    screenshots: [
+      { src: "/screenshots-real/leen-company-real.png", alt: "Leen Company frontend dashboard interface" },
+      { src: "/screenshots-real/leen-company-mobile-real.png", alt: "Leen Company responsive frontend interface" },
+    ],
     links: [
+      { label: "Code", href: "https://github.com/tayebzitouni/lenCombany-back" },
       { label: "PDF documentation", href: "/docs/leen-company-api.pdf" },
     ],
   },
@@ -247,8 +265,12 @@ const PROJECT_ITEMS: ProjectItem[] = [
     body: "An ASP.NET Core backend developed in a team setting for Facebook and chatbot-style automation, including pages, subscribers, keyword replies, messages, broadcasts, plans, discounts, rates, contact requests, SignalR messaging, Redis services, and scheduled publishing.",
     meta: "Backend API with a generated Vercel-ready frontend dashboard",
     technologies: ["ASP.NET Core 9", "SignalR", "CQRS", "Entity Framework Core", "SQL Server", "Redis"],
-    screenshots: [{ src: "/screenshots-real/manychat-real.png", alt: "ManyChat frontend dashboard interface" }],
+    screenshots: [
+      { src: "/screenshots-real/manychat-real.png", alt: "ManyChat frontend dashboard interface" },
+      { src: "/screenshots-real/manychat-mobile-real.png", alt: "ManyChat responsive frontend interface" },
+    ],
     links: [
+      { label: "Code", href: "https://github.com/tayebzitouni/ManyChat_Back" },
       { label: "PDF documentation", href: "/docs/manychat-back.pdf" },
     ],
   },
@@ -259,8 +281,12 @@ const PROJECT_ITEMS: ProjectItem[] = [
     body: "A reconciliation backend built in a collaborative backend team context for importing files, managing parties and accounts, matching transactions, locking match work, dashboarding unmatched transactions, and exporting reconciliation reports.",
     meta: "Backend API with static frontend dashboard generated for portfolio/demo use",
     technologies: ["ASP.NET Core 9", "Entity Framework Core", "SQL Server LocalDB", "JWT", "Excel import/export", "Clean Architecture"],
-    screenshots: [{ src: "/screenshots-real/reconciliation-real.png", alt: "Reconciliation frontend dashboard interface" }],
+    screenshots: [
+      { src: "/screenshots-real/reconciliation-real.png", alt: "Reconciliation frontend dashboard interface" },
+      { src: "/screenshots-real/reconciliation-mobile-real.png", alt: "Reconciliation responsive frontend interface" },
+    ],
     links: [
+      { label: "Code", href: "https://github.com/tayebzitouni/Reconciliation_Back" },
       { label: "PDF documentation", href: "/docs/reconciliation-api.pdf" },
     ],
   },

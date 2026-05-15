@@ -32,9 +32,14 @@ const projects = [
     features: ["Subscriber management", "Membership lifecycle", "Card/access control", "Payments and reporting", "Configuration of clubs, devices and time slots"],
     tech: ["C#", ".NET Framework 4.8", "WPF", "SQL Server", "MVVM", "Crystal Reports"],
     teamwork: "Collaboration project: my work is presented as part of a larger professional codebase, with attention to existing modules, client workflow constraints and maintainability.",
-    screenshot: "camatic-real.png",
+    screenshot: "camatic-dashboard-real.png",
+    screenshots: [
+      ["camatic-login-real.png", "Authentication screen captured from the running desktop application."],
+      ["camatic-dashboard-real.png", "Main dashboard with operational modules and navigation."],
+      ["camatic-subscribers-real.png", "Card/subscriber management interface with reservation and return actions."],
+    ],
     github: "https://github.com/tayebzitouni/Algematic_pisicne_Myversion",
-    live: "Desktop application, not deployable to Vercel.",
+    live: "Desktop application for local Windows runtime.",
   },
   {
     slug: "dark-store-api",
@@ -52,17 +57,21 @@ const projects = [
     ],
     features: ["Product catalog", "Inventory workflow", "Cart and favorites", "JWT authentication", "Media upload", "Admin/customer/vendor roles"],
     tech: ["ASP.NET Core 9", "Entity Framework Core", "SQL Server", "JWT", "Redis-ready config"],
-    teamwork: "Collaboration project: repository ownership belongs to another team member/organization, so the public portfolio avoids broken private links and focuses on my contribution to backend structure and integration.",
+    teamwork: "Collaboration project: delivered in a team context with shared backend responsibilities, API integration work and coordination around product, order and identity modules.",
     screenshot: "dark-store-real.png",
-    github: "Private/team repository access",
-    live: "Static frontend prepared locally; Vercel deployment requires account login.",
+    screenshots: [
+      ["dark-store-real.png", "Desktop API dashboard presenting the backend modules."],
+      ["dark-store-mobile-real.png", "Responsive dashboard view used to verify the frontend presentation."],
+    ],
+    github: "https://github.com/tayebzitouni/Dark_Store_Back",
+    live: "Frontend preview included in the repository for local presentation.",
   },
   {
     slug: "el-amel-center-formation",
     title: "El Amel Center Formation",
     category: "Training center desktop application",
     description: "A Windows Forms application for a training center: students, teachers, formations, courses, sessions, attendance, payments, reports and installer packaging.",
-    context: "This is a local/private desktop project. It is documented through source inspection and real login screen capture because no GitHub remote is configured for the project.",
+    context: "This desktop project centralizes daily training-center operations, from login and staff navigation to student, teacher, finance and reporting modules.",
     actors: ["Administrator", "Reception staff", "Teacher manager", "Payment/accounting user"],
     interfaces: [
       ["Login", "Email/password authentication before accessing center management."],
@@ -75,10 +84,14 @@ const projects = [
     ],
     features: ["Student and teacher records", "Formation/session management", "Attendance", "Payments", "Reports", "Installer packaging"],
     tech: ["C#", ".NET 8", "Windows Forms", "Entity Framework Core", "SQL Server", "FluentValidation"],
-    teamwork: "Personal/local project structure with layered code. Future public publishing needs a real GitHub remote before the portfolio can show a repository link.",
-    screenshot: "el-amel-real.png",
-    github: "No public GitHub repository configured",
-    live: "Desktop application, not deployable to Vercel.",
+    teamwork: "Professional desktop application work with layered architecture and a complete operational workflow for a training center.",
+    screenshot: "el-amel-dashboard-real.png",
+    screenshots: [
+      ["el-amel-login-real.png", "Authentication screen captured from the running application."],
+      ["el-amel-dashboard-real.png", "Situation dashboard with attendance scanning, summary counters and history table."],
+    ],
+    github: "https://github.com/tayebzitouni/El-Amel-Center-Formation",
+    live: "Desktop application for local Windows runtime.",
   },
   {
     slug: "leen-company-api",
@@ -96,10 +109,14 @@ const projects = [
     ],
     features: ["Business content", "Invoices and offers", "Payments", "PDF generation", "Docker deployment files"],
     tech: ["ASP.NET Core 8", "Entity Framework Core", "SQL Server", "Docker", "QuestPDF/iText"],
-    teamwork: "Collaboration project: the repository is owned by another account, so the portfolio presents it as team work and avoids public links that visitors cannot open.",
+    teamwork: "Collaboration project: backend work completed in a team setting with shared responsibility for business, finance and document-generation modules.",
     screenshot: "leen-company-real.png",
-    github: "Private/team repository access",
-    live: "Static frontend prepared locally; Vercel deployment requires account login.",
+    screenshots: [
+      ["leen-company-real.png", "Desktop API dashboard summarizing business and finance modules."],
+      ["leen-company-mobile-real.png", "Responsive frontend view for the same API dashboard."],
+    ],
+    github: "https://github.com/tayebzitouni/lenCombany-back",
+    live: "Frontend preview included in the repository for local presentation.",
   },
   {
     slug: "manychat-back",
@@ -118,10 +135,14 @@ const projects = [
     ],
     features: ["Facebook page management", "Subscribers", "Keyword replies", "Broadcast scheduling", "SignalR hub", "Redis-ready services"],
     tech: ["ASP.NET Core 9", "SignalR", "Entity Framework Core", "SQL Server", "Redis", "CQRS-style handlers"],
-    teamwork: "Collaboration project: pushed to the team branch. The portfolio wording emphasizes backend contribution inside a shared codebase.",
+    teamwork: "Collaboration project: backend contribution inside a shared codebase, focused on messaging workflows, Facebook integration and campaign operations.",
     screenshot: "manychat-real.png",
-    github: "Private/team repository access",
-    live: "Static frontend prepared locally; Vercel deployment requires account login.",
+    screenshots: [
+      ["manychat-real.png", "Desktop API dashboard presenting the messaging automation flow."],
+      ["manychat-mobile-real.png", "Responsive dashboard view for mobile-sized screens."],
+    ],
+    github: "https://github.com/tayebzitouni/ManyChat_Back",
+    live: "Frontend preview included in the repository for local presentation.",
   },
   {
     slug: "reconciliation-api",
@@ -140,10 +161,14 @@ const projects = [
     ],
     features: ["File import", "Party/account management", "Transaction matching", "Dashboard", "Excel export"],
     tech: ["ASP.NET Core 9", "Entity Framework Core", "SQL Server LocalDB", "JWT", "Excel import/export"],
-    teamwork: "Collaboration project: pushed to the team branch and presented as backend work inside a shared financial application.",
+    teamwork: "Collaboration project: backend contribution inside a shared financial application, with focus on import, matching and export workflows.",
     screenshot: "reconciliation-real.png",
-    github: "Private/team repository access",
-    live: "Static frontend prepared locally; Vercel deployment requires account login.",
+    screenshots: [
+      ["reconciliation-real.png", "Desktop API dashboard for reconciliation modules."],
+      ["reconciliation-mobile-real.png", "Responsive dashboard view for the reconciliation workflow."],
+    ],
+    github: "https://github.com/tayebzitouni/Reconciliation_Back",
+    live: "Frontend preview included in the repository for local presentation.",
   },
   {
     slug: "real-estate-application",
@@ -193,17 +218,30 @@ function linkOrText(value) {
   return String(value).startsWith("http") ? `<a href="${esc(value)}">${esc(value)}</a>` : esc(value);
 }
 
+function screenshotGallery(project) {
+  const entries = project.screenshots ?? [[project.screenshot, "Captured application interface."]];
+  const available = entries.filter(([file]) => existsSync(join(realShotsDir, file)));
+
+  if (!available.length) {
+    return `<p class="note">Interface screenshots are documented in the functional description section.</p>`;
+  }
+
+  return `<div class="shots">${available
+    .map(
+      ([file, caption]) =>
+        `<figure><img class="shot" src="../screenshots-real/${esc(file)}" alt="${esc(project.title)} screenshot"/><figcaption>${esc(caption)}</figcaption></figure>`,
+    )
+    .join("")}</div>`;
+}
+
 function docHtml(project) {
-  const screenshotPath = join(realShotsDir, project.screenshot);
-  const screenshotHtml = existsSync(screenshotPath)
-    ? `<img class="shot" src="../screenshots-real/${esc(project.screenshot)}" alt="${esc(project.title)} real screenshot"/>`
-    : `<p class="note">No runnable interface screenshot was available on this machine.</p>`;
+  const screenshotHtml = screenshotGallery(project);
 
   return `<!doctype html><html><head><meta charset="utf-8"/><title>${esc(project.title)} - Cahier des charges</title><style>
     body{font-family:Inter,Arial,sans-serif;margin:0;color:#111827;background:#f8fafc} main{max-width:960px;margin:0 auto;padding:46px}
     h1{font-size:42px;margin:0 0 8px} h2{margin-top:30px;color:#0f172a;border-bottom:1px solid #dbe3ef;padding-bottom:8px} h3{margin:18px 0 6px}
     p,li,td{font-size:15px;line-height:1.7;color:#374151}.hero{border-bottom:4px solid #0f766e;padding-bottom:20px}.meta{color:#64748b;text-transform:uppercase;letter-spacing:.12em;font-size:12px}
-    .shot{width:100%;border:1px solid #dbe3ef;border-radius:8px;margin-top:12px}.chips span{display:inline-block;margin:0 8px 8px 0;padding:7px 10px;border-radius:999px;background:#e5e7eb;color:#111827;font-size:13px}
+    .shots{display:grid;gap:18px}.shot{width:100%;border:1px solid #dbe3ef;border-radius:8px;margin-top:12px}figure{margin:0;padding:0}figcaption{font-size:13px;color:#64748b;margin:7px 0 2px}.chips span{display:inline-block;margin:0 8px 8px 0;padding:7px 10px;border-radius:999px;background:#e5e7eb;color:#111827;font-size:13px}
     table{width:100%;border-collapse:collapse;margin-top:10px}td{border:1px solid #dbe3ef;padding:10px;vertical-align:top}td:first-child{font-weight:700;width:210px;color:#111827}.note{padding:12px;background:#fff7ed;border:1px solid #fed7aa;border-radius:8px}a{color:#0f766e}
   </style></head><body><main>
     <section class="hero"><p class="meta">Cahier des charges / Portfolio documentation</p><h1>${esc(project.title)}</h1><p><strong>${esc(project.category)}</strong></p><p>${esc(project.description)}</p></section>
@@ -213,7 +251,7 @@ function docHtml(project) {
     <h2>4. Interfaces et fonctions principales</h2><table>${project.interfaces.map(([name, text]) => `<tr><td>${esc(name)}</td><td>${esc(text)}</td></tr>`).join("")}</table>
     <h2>5. Technologies utilisees</h2><div class="chips">${project.tech.map((item) => `<span>${esc(item)}</span>`).join("")}</div>
     <h2>6. Travail en equipe / collaboration</h2><p>${esc(project.teamwork)}</p>
-    <h2>7. Capture d'ecran reelle</h2>${screenshotHtml}
+    <h2>7. Captures d'ecran reelles</h2>${screenshotHtml}
     <h2>8. Liens</h2><p><strong>Repository:</strong> ${linkOrText(project.github)}</p><p><strong>Demo:</strong> ${linkOrText(project.live)}</p>
   </main></body></html>`;
 }
