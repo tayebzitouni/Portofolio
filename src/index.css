@@ -1021,6 +1021,8 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
+  max-height: 320px;
+  overflow-y: auto;
 }
 
 .atlas-detail-card {
@@ -1070,6 +1072,8 @@
   color: #f8fafc;
   backdrop-filter: blur(16px);
   box-shadow: 0 18px 56px rgba(0, 0, 0, 0.28);
+  max-height: min(70vh, 620px);
+  overflow-y: auto;
 }
 
 .atlas-detail-panel span,
@@ -1096,6 +1100,42 @@
 
 .atlas-detail-panel small {
   color: #94a3b8;
+}
+
+.atlas-detail-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.atlas-detail-tech-list span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  background: rgba(255, 255, 255, 0.07);
+  color: #dbe4f0;
+  font-size: 0.72rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.atlas-detail-media {
+  margin-top: 14px;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.atlas-detail-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
 }
 
 .atlas-detail-links {

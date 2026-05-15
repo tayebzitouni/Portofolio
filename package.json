@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "node --max-old-space-size=4096 ./node_modules/vite/bin/vite.js build",
+    "generate:project-assets": "node scripts/generate-project-assets.mjs",
     "serve": "vite preview --host 0.0.0.0",
     "typecheck": "tsc --noEmit"
   },

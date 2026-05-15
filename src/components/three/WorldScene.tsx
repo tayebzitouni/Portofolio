@@ -48,6 +48,8 @@ type DetailItem = {
   eyebrow: string;
   body: string;
   meta: string;
+  technologies?: string[];
+  screenshots?: { src: string; alt: string }[];
   links?: { label: string; href: string }[];
 };
 
@@ -75,14 +77,14 @@ const GUIDE_INTERACT_DISTANCE = 7;
 const PROFILE = {
   name: "Tayeb Zitouni",
   role: "Software Engineer / .NET Developer",
-  location: "Algiers, Algeria",
+  location: "Algeria",
 };
 
 const INTRO_STATS = [
   ["3+", "Years building"],
-  ["10+", "Projects shipped"],
+  ["8+", "Projects featured"],
   ["15K+", "YouTube audience"],
-  ["3", "Markets served"],
+  ["3", "Countries served"],
 ] as const;
 
 const WALKABLES: Rect[] = [
@@ -98,7 +100,7 @@ const WALKABLES: Rect[] = [
 const ROOMS: Room[] = [
   {
     id: "about",
-    name: "Origin",
+    name: "Profile",
     kicker: "Who I am",
     x1: -22,
     x2: -14,
@@ -106,139 +108,317 @@ const ROOMS: Room[] = [
     z2: 15,
     color: "#ff7a18",
     accent: "#ffd166",
-    story: "The room of identity, ambition, and the systems-thinking behind the code.",
-    chips: ["Builder", "Teacher", "Freelancer"],
+    story: "A clear introduction to Tayeb's profile, work style, and technical focus.",
+    chips: ["Freelancer", "Engineer", "Creator"],
   },
   {
     id: "experience",
-    name: "Timeline",
-    kicker: "What I shipped",
+    name: "Experience",
+    kicker: "Work journey",
     x1: 12,
     x2: 22,
     z1: -7,
     z2: 7,
     color: "#5eead4",
     accent: "#99f6e4",
-    story: "A moving timeline where practical delivery matters more than decorative titles.",
-    chips: ["Clients", "Systems", "Execution"],
+    story: "Hands-on roles focused on delivery, support, backend systems, and desktop software.",
+    chips: ["Clients", "Backend", "Delivery"],
   },
   {
     id: "projects",
-    name: "Lab",
-    kicker: "Selected builds",
+    name: "Projects",
+    kicker: "What I built",
     x1: -22,
     x2: -14,
     z1: -17,
     z2: -3,
     color: "#38bdf8",
     accent: "#bae6fd",
-    story: "An experimental chamber where products feel like objects you can walk around.",
+    story: "A portfolio of client and personal builds across real estate, education, HR, finance, and operations.",
     chips: ["Apps", "APIs", "Desktop"],
   },
   {
     id: "skills",
-    name: "Stack",
-    kicker: "Tools and patterns",
+    name: "Skills",
+    kicker: "Stack and methods",
     x1: 12,
     x2: 22,
     z1: -25,
     z2: -11,
     color: "#a3e635",
     accent: "#d9f99d",
-    story: "A room built like a technical solar system around architecture and delivery.",
+    story: "Core technologies, architecture patterns, and delivery tools used across Tayeb's work.",
     chips: [".NET", "Architecture", "Databases"],
   },
   {
     id: "education",
-    name: "Signals",
-    kicker: "Learning and awards",
+    name: "Education",
+    kicker: "Studies and activities",
     x1: -8,
     x2: 8,
     z1: 24,
     z2: 38,
     color: "#f472b6",
     accent: "#fbcfe8",
-    story: "A memory chamber shaped by study, contests, scholarships, and momentum.",
-    chips: ["Study", "Awards", "Competitions"],
+    story: "Academic background, scholarships, competitions, and community activities that shape the profile.",
+    chips: ["Studies", "Awards", "Activities"],
   },
   {
     id: "contact",
-    name: "Dock",
-    kicker: "Let's build",
+    name: "Contact",
+    kicker: "Let's work together",
     x1: -8,
     x2: 8,
     z1: -52,
     z2: -38,
     color: "#fb7185",
     accent: "#fecdd3",
-    story: "The last chamber opens into collaboration, remote work, and new opportunities.",
+    story: "Open to freelance work, collaboration, and software projects with real business impact.",
     chips: ["Remote", "Available", "Contact"],
   },
 ] as const;
 
 const ABOUT_COPY = [
-  "21-year-old computer science student and freelance software engineer focused on the .NET ecosystem.",
-  "Building for clients across Algeria, Morocco, and Saudi Arabia while growing with product discipline and execution.",
+  "Software engineer and .NET developer building backend systems, desktop tools, and business software.",
+  "Works with clients in Algeria, Morocco, and Saudi Arabia while studying computer science and growing through real delivery.",
 ] as const;
 
 const EXPERIENCE_ITEMS = [
-  ["2025 - Present", "Freelance .NET backend and desktop developer"],
-  ["2023 - Present", "Software engineering student at the Higher School of Computer Science"],
-  ["2024", "Administrative app builder for document automation and internal workflows"],
+  ["2025 - Present", "Freelance .NET Backend & Desktop Developer"],
+  ["2025 - Present", "Freelance Developer - Algematic SARL"],
+  ["2025", "Intern - Algerie Telecom"],
+  ["2024 - Present", "Freelance IT Help Desk & Software Installation Support"],
+  ["Sep - Oct 2024", "Web Developer Intern - ProdigyInfoTech"],
+  ["2024", "Scientific Clubs - Active Member"],
 ] as const;
 
 const PROJECT_ITEMS: ProjectItem[] = [
   {
-    title: "Darak Estate Platform",
-    plaque: "Darak Estate Platform",
-    eyebrow: "Live on Vercel",
-    body: "A full-stack real estate platform for the Algerian market with verified listings, safe messaging, saved searches, viewing appointments, and role-based dashboards.",
-    meta: "Next.js 14 / Prisma / PostgreSQL / RTL product design",
+    title: "CAmatic Piscine",
+    plaque: "CAmatic Piscine",
+    eyebrow: "Desktop operations system",
+    body: "A Windows desktop system for swimming pool and facility operations. It manages subscribers, associations, memberships, access cards, time slots, devices, payments, renewals, pauses, recoveries, statistics, and printable operational reports.",
+    meta: ".NET Framework / WPF / SQL Server / desktop frontend and service modules",
+    technologies: ["C#", ".NET Framework 4.8", "WPF", "SQL Server", "MVVM", "Crystal Reports"],
+    screenshots: [{ src: "/screenshots/camatic-piscine.svg", alt: "CAmatic Piscine documentation preview" }],
+    links: [
+      { label: "Code", href: "https://github.com/tayebzitouni/Algematic_pisicne_Myversion" },
+      { label: "PDF documentation", href: "/docs/camatic-piscine.pdf" },
+    ],
+  },
+  {
+    title: "Dark Store API",
+    plaque: "Dark Store API",
+    eyebrow: "E-commerce backend",
+    body: "A layered ASP.NET Core backend for a dark-store commerce workflow with products, categories, carts, favorites, inventory, reviews, authentication, vendor/customer roles, uploaded media, email, and Redis-ready infrastructure.",
+    meta: "Backend API with a generated Vercel-ready frontend dashboard",
+    technologies: ["ASP.NET Core 9", "Entity Framework Core", "SQL Server", "JWT", "Redis", "Clean Architecture"],
+    screenshots: [{ src: "/screenshots/dark-store-dashboard.svg", alt: "Dark Store frontend dashboard" }],
+    links: [
+      { label: "Code", href: "https://github.com/AbdullahAliSapry/Dark_Store_Back" },
+      { label: "PDF documentation", href: "/docs/dark-store-api.pdf" },
+    ],
+  },
+  {
+    title: "El Amel Center Formation",
+    plaque: "El Amel Center",
+    eyebrow: "Training center desktop app",
+    body: "A Windows Forms management system for a training center, covering students, teachers, formations, courses, sessions, attendance, payments, school information, reports, and installer packaging.",
+    meta: ".NET 8 Windows desktop frontend with application, core, and infrastructure layers",
+    technologies: ["C#", ".NET 8", "Windows Forms", "Entity Framework Core", "SQL Server", "FluentValidation"],
+    screenshots: [{ src: "/screenshots/el-amel-center.svg", alt: "El Amel Center documentation preview" }],
+    links: [
+      { label: "Code", href: "https://github.com/tayebzitouni/El-Amel-Center-Formation" },
+      { label: "PDF documentation", href: "/docs/el-amel-center-formation.pdf" },
+    ],
+  },
+  {
+    title: "Leen Company API",
+    plaque: "Leen Company",
+    eyebrow: "Business backend",
+    body: "Backend services for a Saudi company platform with services, projects, partners, marketers, invoices, price offers, payments, bank accounts, fixed assets, PDF generation, reports, and business profile content.",
+    meta: "Backend API with static frontend dashboard generated for portfolio/demo use",
+    technologies: ["ASP.NET Core 8", "Entity Framework Core", "SQL Server", "JWT", "Docker", "PDF generation"],
+    screenshots: [{ src: "/screenshots/leen-company-dashboard.svg", alt: "Leen Company frontend dashboard" }],
+    links: [
+      { label: "Code", href: "https://github.com/AbdullahAliSapry/lenCombany-back" },
+      { label: "PDF documentation", href: "/docs/leen-company-api.pdf" },
+    ],
+  },
+  {
+    title: "ManyChat Back",
+    plaque: "ManyChat Back",
+    eyebrow: "Messaging automation API",
+    body: "An ASP.NET Core backend for Facebook and chatbot-style automation, including pages, subscribers, keyword replies, messages, broadcasts, plans, discounts, rates, contact requests, SignalR messaging, Redis services, and scheduled publishing.",
+    meta: "Backend API with a generated Vercel-ready frontend dashboard",
+    technologies: ["ASP.NET Core 9", "SignalR", "CQRS", "Entity Framework Core", "SQL Server", "Redis"],
+    screenshots: [{ src: "/screenshots/manychat-dashboard.svg", alt: "ManyChat frontend dashboard" }],
+    links: [
+      { label: "Code", href: "https://github.com/AbdullahAliSapry/ManyChat_Back" },
+      { label: "PDF documentation", href: "/docs/manychat-back.pdf" },
+    ],
+  },
+  {
+    title: "Reconciliation API",
+    plaque: "Reconciliation API",
+    eyebrow: "Financial matching backend",
+    body: "A reconciliation backend for importing files, managing parties and accounts, matching transactions, locking match work, dashboarding unmatched transactions, and exporting reconciliation reports.",
+    meta: "Backend API with static frontend dashboard generated for portfolio/demo use",
+    technologies: ["ASP.NET Core 9", "Entity Framework Core", "SQL Server LocalDB", "JWT", "Excel import/export", "Clean Architecture"],
+    screenshots: [{ src: "/screenshots/reconciliation-dashboard.svg", alt: "Reconciliation frontend dashboard" }],
+    links: [
+      { label: "Code", href: "https://github.com/AbdullahAliSapry/Reconciliation_Back" },
+      { label: "PDF documentation", href: "/docs/reconciliation-api.pdf" },
+    ],
+  },
+  {
+    title: "Real Estate Application",
+    plaque: "Real Estate Application",
+    eyebrow: "Property marketplace",
+    body: "A real estate platform for users looking to rent or buy houses and apartments, with listings, search, filtering, contact requests, and administration features.",
+    meta: "TypeScript / full-stack web app / property workflows",
+    technologies: ["TypeScript", "React", "Vercel", "Property workflows"],
+    screenshots: [{ src: "/screenshots/real-estate-application.svg", alt: "Real Estate Application project preview" }],
     links: [
       { label: "Live app", href: "https://fikra-tech-mauve.vercel.app" },
       { label: "Code", href: "https://github.com/tayebzitouni/estate" },
+      { label: "PDF documentation", href: "/docs/real-estate-application.pdf" },
     ],
   },
   {
-    title: "Masbah Membership System",
-    plaque: "Masbah Membership System",
-    eyebrow: "Live on Vercel",
-    body: "An Arabic-first membership and associations management system for the Olympic swimming pool of Setif, covering subscribers, associations, payments, cards, and reporting.",
-    meta: "React / Vite / Electron / .NET desktop packaging",
+    title: "Maasba Project - 8 Mai 1945 Swimming Pool, Setif",
+    plaque: "Maasba Project",
+    eyebrow: "Operations management",
+    body: "Software modules for swimming pool operations, including membership tracking, subscriptions, payments, scheduling, and administrative management.",
+    meta: "TypeScript / operations software / membership workflows",
+    technologies: ["TypeScript", "React", "Vite", "Operations workflows"],
+    screenshots: [{ src: "/screenshots/maasba-project.svg", alt: "Maasba Project project preview" }],
     links: [
       { label: "Live app", href: "https://masbah-source.vercel.app" },
       { label: "Code", href: "https://github.com/tayebzitouni/Piscine" },
+      { label: "PDF documentation", href: "/docs/maasba-project.pdf" },
     ],
   },
   {
-    title: "HR and administration desktop suite",
-    plaque: "HR and admin suite",
-    eyebrow: "Client operations",
-    body: "A desktop workflow suite built to automate internal administration, reduce repetitive document handling, and improve the reliability of day-to-day HR processes.",
-    meta: "C# / .NET / SQL Server / document automation",
+    title: "Bank System",
+    plaque: "Bank System",
+    eyebrow: "Desktop finance app",
+    body: "A C#/.NET WinForms banking desktop application with account creation, deposits, withdrawals, transaction history, and SQL Server storage.",
+    meta: "C# / .NET / WinForms / SQL Server",
+    technologies: ["C#", ".NET", "WinForms", "SQL Server"],
+    screenshots: [{ src: "/screenshots/bank-system.svg", alt: "Bank System project preview" }],
+    links: [{ label: "PDF documentation", href: "/docs/bank-system.pdf" }],
   },
   {
-    title: "Educational creator ecosystem",
-    plaque: "Educational creator ecosystem",
-    eyebrow: "Audience product",
-    body: "A system of educational content, publishing workflows, and student-facing experiences shaped by teaching, distribution, and long-term audience growth.",
-    meta: "Content systems / product thinking / audience operations",
+    title: "PrimaryConnect (Backend)",
+    plaque: "PrimaryConnect",
+    eyebrow: "Education platform",
+    body: "Worked as backend developer and team leader on an Algerian education platform connecting parents, teachers, and administrators with APIs, notifications, and chat features.",
+    meta: "C# / ASP.NET Core / SignalR / team leadership",
+    technologies: ["C#", "ASP.NET Core", "SignalR", "SQL Server", "Team leadership"],
+    screenshots: [{ src: "/screenshots/primaryconnect.svg", alt: "PrimaryConnect project preview" }],
+    links: [
+      { label: "Code", href: "https://github.com/tayebzitouni/PrimaryConnect" },
+      { label: "PDF documentation", href: "/docs/primaryconnect.pdf" },
+    ],
+  },
+  {
+    title: "Mini HR (Freelance)",
+    plaque: "Mini HR",
+    eyebrow: "HR automation",
+    body: "A desktop HR tool for the Tebessa Trade Directorate used to manage employees and generate automated documents such as work certificates and vacation forms.",
+    meta: "C# / .NET / document automation / HR",
+    technologies: ["C#", ".NET", "Desktop UI", "Document automation"],
+    screenshots: [{ src: "/screenshots/mini-hr.svg", alt: "Mini HR project preview" }],
+    links: [{ label: "PDF documentation", href: "/docs/mini-hr.pdf" }],
+  },
+  {
+    title: "Lyn Company (Backend)",
+    plaque: "Lyn Company",
+    eyebrow: "Saudi marketplace backend",
+    body: "Backend services for a Saudi marketplace where clients compare provider offers, including admin and financial management modules for payments and transactions.",
+    meta: "Backend services / payments / administration",
+    technologies: ["ASP.NET Core", "SQL Server", "Payments", "Administration"],
+    screenshots: [{ src: "/screenshots/lyn-company.svg", alt: "Lyn Company project preview" }],
+    links: [{ label: "PDF documentation", href: "/docs/lyn-company.pdf" }],
+  },
+  {
+    title: "Kay Group (Backend)",
+    plaque: "Kay Group",
+    eyebrow: "Business management system",
+    body: "A business management and invoicing application for a Moroccan company, covering clients, suppliers, invoices, payments, bank reconciliation, tax, multi-currency, and reporting.",
+    meta: "C# / business software / invoicing / reporting",
+    technologies: ["C#", "ASP.NET Core", "SQL Server", "Invoicing", "Reporting"],
+    screenshots: [{ src: "/screenshots/kay-group.svg", alt: "Kay Group project preview" }],
+    links: [
+      { label: "Code", href: "https://github.com/tayebzitouni/KayGroup" },
+      { label: "PDF documentation", href: "/docs/kay-group.pdf" },
+    ],
+  },
+  {
+    title: "E-commerce Project",
+    plaque: "E-commerce Project",
+    eyebrow: "Learning project",
+    body: "An e-commerce website built to practice product management, offers, client interaction, sales workflows, and digital marketing concepts.",
+    meta: "Web development / e-commerce / product thinking",
+    technologies: ["Web development", "E-commerce", "Product management", "Sales workflows"],
+    screenshots: [{ src: "/screenshots/e-commerce-project.svg", alt: "E-commerce project preview" }],
+    links: [{ label: "PDF documentation", href: "/docs/e-commerce-project.pdf" }],
   },
 ];
 
 const SKILLS_GROUPS = [
-  ["Languages", "C#, C++, JavaScript, Java, Pascal"],
-  ["Frameworks", ".NET Core, ASP.NET Core, Entity Framework, SignalR"],
-  ["Architecture", "Clean Architecture, CQRS, SOLID, REST API, JWT Auth"],
-  ["Tools", "SQL Server, SQLite, Git, Docker, Visual Studio, VS Code"],
+  ["Programming", "C#, C++, JavaScript, Java, Pascal"],
+  ["Backend", "ASP.NET Core, REST APIs, ADO.NET, Entity Framework, SignalR, WebSocket"],
+  ["Architecture", "Clean Architecture, CQRS, SOLID, design patterns, AutoMapper, FluentValidation, LINQ"],
+  ["Data & Tools", "SQL Server, SQLite, Visual Studio, VS Code, Git, Docker"],
 ] as const;
 
 const EDUCATION_ITEMS = [
-  "3rd year Computer Science / Higher School of Computer Science, Algiers",
-  "Higher School of Computer Science / Sidi Bel Abbes",
-  "Baccalaureate in Experimental Sciences / 18.17 out of 20",
-  "15K+ YouTube subscribers with educational content",
+  ["Education", "2023-2025: Computer Science student at the Higher School of Computer Science in Sidi Bel Abbes."],
+  ["Degree track", "Licence Informatique - ESI Alger, 2026."],
+  ["Baccalaureate", "Bac 2023: Experimental Sciences with an average of 18.17/20."],
+  ["Scholarships", "Scholarships sponsored by the Turkish and Russian governments."],
 ] as const;
+
+const EDUCATION_DETAILS: DetailItem[] = [
+  {
+    title: "Computer Science Studies",
+    eyebrow: "Education",
+    body: "Computer Science student at the Higher School of Computer Science in Sidi Bel Abbes from 2023 to 2025, continuing with a Licence Informatique track connected to ESI Alger for 2026.",
+    meta: "Higher School of Computer Science / ESI Alger",
+  },
+  {
+    title: "Baccalaureate in Experimental Sciences",
+    eyebrow: "Academic result",
+    body: "Earned the 2023 baccalaureate in Experimental Sciences with a score of 18.17 out of 20.",
+    meta: "Bac 2023 / 18.17 / 20",
+  },
+  {
+    title: "International Scholarships",
+    eyebrow: "Awards",
+    body: "Received scholarship opportunities sponsored by the Turkish government and the Russian government.",
+    meta: "Turkey scholarship / Russia scholarship",
+  },
+  {
+    title: "Competitions and Hackathons",
+    eyebrow: "Activities",
+    body: "Participated in Xcode Problem Solving Competition, IngeCTF cybersecurity and cryptography activities, IngeCode Problem Solving Competition, and multiple online and offline hackathons.",
+    meta: "Problem solving / cybersecurity / hackathons",
+  },
+  {
+    title: "Content Creator for BAC Students",
+    eyebrow: "Additional activity",
+    body: "Creates educational videos and visual content for BAC students and has grown a YouTube audience of more than 15,000 subscribers through content strategy and student-focused communication.",
+    meta: "YouTube / education / digital content",
+  },
+  {
+    title: "Community Manager - Social Media Sales Page",
+    eyebrow: "Additional activity",
+    body: "Handled customer inquiries, product promotion, and order processing through Instagram and Facebook direct messages while adapting sales communication to different audiences.",
+    meta: "Sales communication / social media / freelance",
+  },
+];
 
 const CONTACT_ITEMS = [
   ["Email", "tayebzitouni1122111@gmail.com"],
@@ -247,52 +427,62 @@ const CONTACT_ITEMS = [
   ["LinkedIn", "linkedin.com/in/tayeb-zitouni"],
 ] as const;
 
+function describeExperience(date: string, title: string): DetailItem {
+  if (title.includes("Algerie Telecom")) {
+    return {
+      title: "Internship at Algerie Telecom",
+      eyebrow: date,
+      body: "Internship at Algerie Telecom, where I gained practical experience in networking, telecommunications infrastructure, technical support, and real-world IT operations.",
+      meta: "Networking / telecommunications / technical support",
+    };
+  }
+
+  return {
+    title,
+    eyebrow: date,
+    body: "A practical experience focused on solving operational problems, building useful software, and learning through real projects.",
+    meta: "Professional experience",
+  };
+}
+
 const ROOM_DETAILS: Record<RoomId, DetailItem[]> = {
   about: [
     {
-      title: "Freelance engineer",
+      title: "Freelance software engineer",
       eyebrow: "Profile",
-      body: "Builds desktop applications, backend services, and workflow tools with a focus on clear structure and real client outcomes.",
-      meta: "C# / .NET / SQL Server",
+      body: "Builds desktop applications, backend services, and workflow tools with a focus on clear structure, business value, and reliable delivery.",
+      meta: "C# / .NET / SQL Server / APIs",
     },
     {
       title: "Content creator",
       eyebrow: "Audience",
-      body: "Runs educational content for BAC students and turns complex ideas into material people can actually understand and use.",
+      body: "Creates educational content for BAC students and turns technical or academic ideas into practical explanations people can understand and use.",
       meta: "15K+ subscribers",
     },
     {
       title: "Product mindset",
       eyebrow: "Approach",
-      body: "Balances technical decisions with usability, maintainability, and delivery speed instead of treating code as an isolated artifact.",
+      body: "Balances technical decisions with usability, maintainability, delivery speed, and the real needs of the client or organization.",
       meta: "Architecture / clarity / execution",
     },
   ],
-  experience: EXPERIENCE_ITEMS.map(([date, title]) => ({
-    title,
-    eyebrow: date,
-    body: "A practical stage in the portfolio story, focused on learning by shipping systems and solving operational problems.",
-    meta: "Delivery record",
-  })),
-  projects: PROJECT_ITEMS.map(({ title, eyebrow, body, meta, links }) => ({
+  experience: EXPERIENCE_ITEMS.map(([date, title]) => describeExperience(date, title)),
+  projects: PROJECT_ITEMS.map(({ title, eyebrow, body, meta, technologies, screenshots, links }) => ({
     title,
     eyebrow,
     body,
     meta,
+    technologies,
+    screenshots,
     links,
   })),
   skills: SKILLS_GROUPS.map(([title, body]) => ({
     title,
-    eyebrow: "Technical stack",
+    eyebrow: "Skills",
     body,
     meta: "Core toolkit",
   })),
-  education: EDUCATION_ITEMS.map((title, index) => ({
-    title,
-    eyebrow: `Signal ${String(index + 1).padStart(2, "0")}`,
-    body: "A learning milestone that adds context to the engineering journey, competitive mindset, and long-term growth.",
-    meta: "Education and growth",
-  })),
+  education: EDUCATION_DETAILS,
   contact: CONTACT_ITEMS.map(([title, body]) => ({
     title,
     eyebrow: "Contact",
@@ -453,13 +643,13 @@ function IntroScreen({ onStart }: { onStart: () => void }) {
         </div>
 
         <main className="atlas-intro__hero">
-          <p className="atlas-intro__eyebrow">Software engineer / .NET developer / interactive portfolio</p>
+          <p className="atlas-intro__eyebrow">Software engineer / .NET developer / interactive 3D portfolio</p>
           <h1 className="atlas-intro__title atlas-intro__title--massive">
             <span>Tayeb</span>
             <span>Zitouni</span>
           </h1>
           <p className="atlas-intro__copy atlas-intro__copy--hero">
-            I build software systems, desktop applications, and backend tools with C#, .NET, and SQL Server. Step inside my 3D world to explore the projects, skills, and story behind the work.
+            I build backend systems, desktop applications, and business software with C#, .NET, SQL Server, and practical product thinking. Step inside to explore my projects, skills, education, and activities.
           </p>
           <div className="atlas-start-cue">
             <kbd>Enter</kbd>
@@ -889,12 +1079,12 @@ function AboutExhibit({ room, isFocused }: { room: Room; isFocused: boolean }) {
             </Html>
           </Float>
         ))}
-        <WorldPlaque position={[-3.6, 2.1, 0]} room={room} title="Origin">
+        <WorldPlaque position={[-3.6, 2.1, 0]} room={room} title="Profile">
           {ABOUT_COPY.map((line) => <p key={line}>{line}</p>)}
         </WorldPlaque>
-        <WorldPlaque position={[3.6, 2, 0]} room={room} title="Principles">
+        <WorldPlaque position={[3.6, 2, 0]} room={room} title="Core focus">
           <div className="atlas-room-chip-list">
-            {["Clean Architecture", "CQRS", "SOLID", "ASP.NET Core", "WPF", "SQL Server"].map((chip) => (
+            {["Clean Architecture", "CQRS", "SOLID", "ASP.NET Core", "SignalR", "SQL Server"].map((chip) => (
               <span key={chip}>{chip}</span>
             ))}
           </div>
@@ -912,7 +1102,7 @@ function ExperienceExhibit({ room, isFocused }: { room: Room; isFocused: boolean
       <ExhibitCore room={room} />
       {!isFocused ? (
         <>
-        {EXPERIENCE_ITEMS.map(([date, title], index) => (
+        {EXPERIENCE_ITEMS.slice(0, 4).map(([date, title], index) => (
           <group key={title} position={[-2.8 + index * 2.8, 0, 3]}>
             <mesh position={[0, 1.1 + index * 0.18, 0]}>
               <boxGeometry args={[0.54, 2.2 + index * 0.35, 0.54]} />
@@ -924,7 +1114,7 @@ function ExperienceExhibit({ room, isFocused }: { room: Room; isFocused: boolean
           </group>
         ))}
         <WorldPlaque position={[0, 2.2, -3.3]} room={room} title="Experience">
-          <p>Practical backend and desktop engineering, with a strong bias for delivery, clarity, and durable architecture.</p>
+          <p>Freelance, internship, and support experience across backend systems, desktop software, and operational tools.</p>
         </WorldPlaque>
         </>
       ) : null}
@@ -939,17 +1129,25 @@ function ProjectsExhibit({ room, isFocused }: { room: Room; isFocused: boolean }
       <ExhibitCore room={room} />
       {!isFocused ? (
         <>
-        {PROJECT_ITEMS.map((project, index) => (
-          <Float key={project.title} speed={1.5 + index * 0.12} rotationIntensity={0.24} floatIntensity={0.55}>
-            <mesh position={[-2.7 + (index % 2) * 5.4, 1.25 + Math.floor(index / 2) * 1.45, -2.2 + (index % 2) * 0.3]}>
-              <boxGeometry args={[2.2, 1.18, 0.12]} />
+        {PROJECT_ITEMS.map((project, index) => {
+          const column = index % 2;
+          const row = Math.floor(index / 2);
+          const x = -2.45 + column * 4.9;
+          const y = 1.2 + row * 0.75;
+          const z = -4.7 + row * 2.85 + column * 0.2;
+
+          return (
+          <Float key={project.title} speed={1.5 + index * 0.08} rotationIntensity={0.24} floatIntensity={0.45}>
+            <mesh position={[x, y, z]}>
+              <boxGeometry args={[1.9, 0.72, 0.12]} />
               <meshStandardMaterial color="#09121d" emissive={room.color} emissiveIntensity={0.28} />
             </mesh>
-            <WorldPlaque position={[-2.7 + (index % 2) * 5.4, 1.25 + Math.floor(index / 2) * 1.45, -2.05 + (index % 2) * 0.3]} room={room} title={`Project ${index + 1}`} width={210}>
+            <WorldPlaque position={[x, y, z + 0.14]} room={room} title={`Project ${index + 1}`} width={170}>
               <p>{project.plaque}</p>
             </WorldPlaque>
           </Float>
-        ))}
+          );
+        })}
         </>
       ) : null}
     </group>
@@ -989,11 +1187,14 @@ function EducationExhibit({ room, isFocused }: { room: Room; isFocused: boolean 
       <ExhibitCore room={room} />
       {!isFocused ? (
         <>
-        {EDUCATION_ITEMS.map((item, index) => (
-          <WorldPlaque key={item} position={[-5.2 + index * 3.45, 2.15 + (index % 2) * 0.5, -3.2 + (index % 2) * 2.4]} room={room} title={`Signal ${String(index + 1).padStart(2, "0")}`} width={210}>
+        {EDUCATION_ITEMS.map(([label, item], index) => (
+          <WorldPlaque key={label} position={[-5.2 + index * 3.45, 2.15 + (index % 2) * 0.5, -3.2 + (index % 2) * 2.4]} room={room} title={label} width={210}>
             <p>{item}</p>
           </WorldPlaque>
         ))}
+        <WorldPlaque position={[0, 2.15, 3.2]} room={room} title="Highlights" width={260}>
+          <p>Open the detail panel to see awards, competitions, content creation, and community work.</p>
+        </WorldPlaque>
         </>
       ) : null}
     </group>
@@ -1008,7 +1209,7 @@ function ContactExhibit({ room, isFocused }: { room: Room; isFocused: boolean })
       {!isFocused ? (
         <>
         <WorldPlaque position={[0, 2.2, -3.3]} room={room} title="Open channel" width={280}>
-          <p>Open to freelance projects, long-term collaboration, and product teams that want disciplined engineering.</p>
+          <p>Open to freelance projects, long-term collaboration, and product teams that need dependable software delivery.</p>
         </WorldPlaque>
         {CONTACT_ITEMS.map(([label, value], index) => (
           <WorldPlaque key={label} position={[-4.2 + (index % 2) * 8.4, 1.9 + Math.floor(index / 2) * 1.35, 2.9]} room={room} title={label} width={240}>
@@ -1199,7 +1400,7 @@ function DetailDeck({
 }) {
   if (!room) return null;
 
-  const details = ROOM_DETAILS[room.id];
+  const details: DetailItem[] = ROOM_DETAILS[room.id];
   const shouldShowCards = isOpen && !selected;
 
   return (
@@ -1221,8 +1422,8 @@ function DetailDeck({
               key={`${detail.eyebrow}-${detail.title}`}
               className="atlas-detail-card"
               style={{
-                borderColor: selected?.title === detail.title ? `${room.color}cc` : `${room.color}33`,
-                boxShadow: selected?.title === detail.title ? `0 0 24px ${room.color}24` : "none",
+                borderColor: `${room.color}33`,
+                boxShadow: "none",
               }}
               onClick={() => onSelect(detail)}
             >
@@ -1243,6 +1444,20 @@ function DetailDeck({
           <strong>{selected.title}</strong>
           <p>{selected.body}</p>
           <small>{selected.meta}</small>
+          {selected.technologies?.length ? (
+            <div className="atlas-detail-tech-list" aria-label="Technologies used">
+              {selected.technologies.map((technology) => (
+                <span key={technology}>{technology}</span>
+              ))}
+            </div>
+          ) : null}
+          {selected.screenshots?.length ? (
+            <div className="atlas-detail-media">
+              {selected.screenshots.map((screenshot) => (
+                <img key={screenshot.src} src={screenshot.src} alt={screenshot.alt} />
+              ))}
+            </div>
+          ) : null}
           {selected.links?.length ? (
             <div className="atlas-detail-links">
               {selected.links.map((link) => (
@@ -1277,7 +1492,7 @@ function GuideChat({
     return (
       <div className="atlas-guide-hint">
         <MessageCircle aria-hidden="true" />
-        <span>Find the seated AI guide to ask questions</span>
+        <span>Find the seated AI guide to ask about projects, studies, or contact details</span>
       </div>
     );
   }
@@ -1288,7 +1503,7 @@ function GuideChat({
         <MessageCircle aria-hidden="true" />
         <div>
           <span>AI guide</span>
-          <strong>Ask about the profile</strong>
+          <strong>Ask about the portfolio</strong>
         </div>
       </div>
 
@@ -1333,7 +1548,7 @@ export default function WorldScene() {
   const [guideMessages, setGuideMessages] = useState<ChatMessage[]>([
     {
       role: "assistant",
-      content: "I am Tayeb's AI guide. Come closer and ask me about his projects, skills, experience, or contact info.",
+      content: "I am Tayeb's AI guide. Ask me about his projects, skills, experience, education, activities, or contact details.",
     },
   ]);
   const [isGuideSending, setIsGuideSending] = useState(false);
@@ -1378,14 +1593,14 @@ export default function WorldScene() {
         body: JSON.stringify({ messages: nextMessages }),
       });
       const data = await response.json();
-      const answer = typeof data.answer === "string" ? data.answer : "I could not answer that yet. Try asking about Tayeb's skills, projects, or contact info.";
+      const answer = typeof data.answer === "string" ? data.answer : "I could not answer that yet. Try asking about Tayeb's skills, projects, studies, or contact info.";
       setGuideMessages((messages) => [...messages, { role: "assistant", content: answer }]);
     } catch {
       setGuideMessages((messages) => [
         ...messages,
         {
           role: "assistant",
-          content: "I am offline right now, but I can still tell you that Tayeb builds .NET apps, backend systems, and client tools.",
+          content: "I am offline right now, but I can still tell you that Tayeb builds .NET apps, backend systems, desktop software, and client tools.",
         },
       ]);
     } finally {
@@ -1453,7 +1668,7 @@ export default function WorldScene() {
         </div>
 
         <div className="atlas-controls">
-          Right/Left turn the camera, Up moves forward, Down goes back
+          Left and right turn the camera, up moves forward, and down moves back
         </div>
 
         <ArrowPad inputRef={virtualInputRef} />
