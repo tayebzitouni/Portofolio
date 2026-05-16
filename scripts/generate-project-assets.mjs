@@ -37,6 +37,7 @@ const projects = [
       ["camatic-login-real.png", "Authentication screen captured from the running desktop application."],
       ["camatic-dashboard-real.png", "Main dashboard with operational modules and navigation."],
       ["camatic-subscribers-real.png", "Card/subscriber management interface with reservation and return actions."],
+      ["camatic-interfaces-real.png", "Complete interface inventory generated from the WPF XAML views in the source code."],
     ],
     github: "https://github.com/tayebzitouni/Algematic_pisicne_Myversion",
     live: "Desktop application for local Windows runtime.",
@@ -62,6 +63,7 @@ const projects = [
     screenshots: [
       ["dark-store-real.png", "Desktop API dashboard presenting the backend modules."],
       ["dark-store-mobile-real.png", "Responsive dashboard view used to verify the frontend presentation."],
+      ["dark-store-interfaces-real.png", "Complete API interface inventory generated from ASP.NET Core controllers."],
     ],
     github: "https://github.com/tayebzitouni/Dark_Store_Back",
     live: "Frontend preview included in the repository for local presentation.",
@@ -89,6 +91,7 @@ const projects = [
     screenshots: [
       ["el-amel-login-real.png", "Authentication screen captured from the running application."],
       ["el-amel-dashboard-real.png", "Situation dashboard with attendance scanning, summary counters and history table."],
+      ["el-amel-interfaces-real.png", "Complete interface inventory generated from Windows Forms source files."],
     ],
     github: "https://github.com/tayebzitouni/El-Amel-Center-Formation",
     live: "Desktop application for local Windows runtime.",
@@ -114,6 +117,7 @@ const projects = [
     screenshots: [
       ["leen-company-real.png", "Desktop API dashboard summarizing business and finance modules."],
       ["leen-company-mobile-real.png", "Responsive frontend view for the same API dashboard."],
+      ["leen-company-interfaces-real.png", "Complete API interface inventory generated from ASP.NET Core controllers."],
     ],
     github: "https://github.com/tayebzitouni/lenCombany-back",
     live: "Frontend preview included in the repository for local presentation.",
@@ -140,6 +144,7 @@ const projects = [
     screenshots: [
       ["manychat-real.png", "Desktop API dashboard presenting the messaging automation flow."],
       ["manychat-mobile-real.png", "Responsive dashboard view for mobile-sized screens."],
+      ["manychat-interfaces-real.png", "Complete API interface inventory generated from ASP.NET Core controllers."],
     ],
     github: "https://github.com/tayebzitouni/ManyChat_Back",
     live: "Frontend preview included in the repository for local presentation.",
@@ -166,6 +171,7 @@ const projects = [
     screenshots: [
       ["reconciliation-real.png", "Desktop API dashboard for reconciliation modules."],
       ["reconciliation-mobile-real.png", "Responsive dashboard view for the reconciliation workflow."],
+      ["reconciliation-interfaces-real.png", "Complete API interface inventory generated from ASP.NET Core controllers."],
     ],
     github: "https://github.com/tayebzitouni/Reconciliation_Back",
     live: "Frontend preview included in the repository for local presentation.",
